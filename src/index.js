@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Header';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+class Index extends Component{
+    render = () => {
+        return (
+            <Header></Header>
+        );
+    }
+}
+
+ReactDOM.render(<Index />, document.getElementById('root'));
