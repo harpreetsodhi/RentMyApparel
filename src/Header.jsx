@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Button, Navbar, Nav, Form, FormControl } from "react-bootstrap";
+import styles from "./style.module.css";
 
 class Header extends Component {
   constructor(props) {
@@ -10,14 +11,26 @@ class Header extends Component {
 
   render = () => {
     return (
-      <Navbar bg="primary" variant="dark">
-        <Navbar.Brand href="#home">Rent My Apperal</Navbar.Brand>
+      <Navbar className={styles.nav}>
+        <Navbar.Brand style={{ color: "white" }} href="#home">
+          Rent My Apperal
+        </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#thrift">Thrift Store</Nav.Link>
-          <Nav.Link href="#donation">Donation</Nav.Link>
-          <Nav.Link href="#features">Login</Nav.Link>
-          <Nav.Link href="#pricing">Sign Up</Nav.Link>
+          <Nav.Link style={{ color: "white" }} href="#home">
+            Home
+          </Nav.Link>
+          <Nav.Link style={{ color: "white" }} href="#thrift">
+            Thrift Store
+          </Nav.Link>
+          <Nav.Link style={{ color: "white" }} href="#donation">
+            Donation
+          </Nav.Link>
+          <Nav.Link style={{ color: "white" }} href="#features">
+            Login
+          </Nav.Link>
+          <Nav.Link style={{ color: "white" }} href="#pricing">
+            Sign Up
+          </Nav.Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
