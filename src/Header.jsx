@@ -14,6 +14,8 @@ class Header extends Component {
         <Navbar.Brand href="#home">Rent My Apperal</Navbar.Brand>
         <Nav className="mr-auto">
           <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#thrift">Thrift Store</Nav.Link>
+          <Nav.Link href="#donation">Donation</Nav.Link>
           <Nav.Link href="#features">Login</Nav.Link>
           <Nav.Link href="#pricing">Sign Up</Nav.Link>
         </Nav>

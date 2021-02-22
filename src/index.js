@@ -7,6 +7,7 @@ import SignUp from "./components/signup.js";
 import "font-awesome/css/font-awesome.min.css";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
+import thrift from "./components/thrift.js"
 
 class Index extends Component {
   // https://stackoverflow.com/questions/46845543/react-bootstrap-tab-not-changing-content
