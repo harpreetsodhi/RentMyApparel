@@ -1,0 +1,23 @@
+:root {
+  --bg-color: #fffbe6;
+  --accent-color: #1266f1;
+  --nav-color: #20232a;
+}
+
+.body {
+  background-color: var(--bg-color);
+}
+
+.nav {
+  background-color: var(--nav-color) !important;
+  color: red;
+}
+
+.button {
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #4caf50; /* Green */
+  color: white;
+}

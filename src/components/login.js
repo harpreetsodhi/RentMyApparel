@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import styles from "../style.module.css";
 
 //  Ref: https://www.positronx.io/build-react-login-sign-up-ui-template-with-bootstrap-4/
 export default class Login extends Component {

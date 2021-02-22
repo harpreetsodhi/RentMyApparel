@@ -7,7 +7,9 @@ import SignUp from "./components/signup.js";
 import "font-awesome/css/font-awesome.min.css";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import thrift from "./components/thrift.js"
+import thrift from "./components/thrift.js";
+import Products from "./components/products";
+import styles from "./style.module.css";
 
 class Index extends Component {
   // https://stackoverflow.com/questions/46845543/react-bootstrap-tab-not-changing-content
@@ -26,8 +28,8 @@ class Index extends Component {
 
   render = () => {
     return (
-      <div>
-        <Header></Header>
+      <div className={styles.body}>
+        <Header className={styles.nav}></Header>
 
         <div
           class="rows justify-content-center"
