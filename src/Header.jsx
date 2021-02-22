@@ -33,7 +33,7 @@ class Header extends Component {
           </Nav.Link>
         </Nav>
         <Form inline>
-          {/* <Nav.Link style={{color : "white"}} href="#contact">Contact Us</Nav.Link> */}
+          <Nav.Link style={{color : "white"}} href="#contact">Contact Us</Nav.Link>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
           <Button variant="outline-light">Search</Button>
         </Form>
