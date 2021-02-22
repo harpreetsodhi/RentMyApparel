@@ -56,6 +56,11 @@ class Index extends Component {
                 <SignUp />
               </div>
             </Tab>
+            <Tab eventKey={3} title="Thrift Store">
+              <div>
+                <thrift />
+              </div>
+            </Tab>
           </Tabs>
         </div>
       </div>
