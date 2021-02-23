@@ -38,6 +38,7 @@ class Index extends Component {
           <Route path="/signup" exact component={SignUp}></Route>
           <Route path="/products" exact component={Products}></Route>
           <Route path="/contact" exact component={Contact}></Route>
+          <Route path="/thrift" exact component={Thrift}></Route>
         </BrowserRouter>
       </div>
     );
