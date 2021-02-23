@@ -29,7 +29,7 @@ export default class Products extends Component {
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Button variant="primary">View Product</Button>
+            <Button variant="dark">View Product</Button>
             <br />
             <small className="text-muted">Posted 3 mins ago</small>
           </Card.Footer>
@@ -50,7 +50,7 @@ export default class Products extends Component {
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Button variant="primary">View Product</Button>
+            <Button variant="dark">View Product</Button>
             <br />
             <small className="text-muted">Posted 3 mins ago</small>
           </Card.Footer>
@@ -71,7 +71,7 @@ export default class Products extends Component {
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Button variant="primary">View Product</Button>
+            <Button variant="dark">View Product</Button>
             <br />
             <small className="text-muted">Posted 3 mins ago</small>
           </Card.Footer>
@@ -92,7 +92,7 @@ export default class Products extends Component {
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Button variant="primary">View Product</Button>
+            <Button variant="dark">View Product</Button>
             <br />
             <small className="text-muted">Posted 3 mins ago</small>
           </Card.Footer>
@@ -113,7 +113,7 @@ export default class Products extends Component {
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Button variant="primary">View Product</Button>
+            <Button variant="dark">View Product</Button>
             <br />
             <small className="text-muted">Posted 3 mins ago</small>
           </Card.Footer>
@@ -134,7 +134,7 @@ export default class Products extends Component {
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Button variant="primary">View Product</Button>
+            <Button variant="dark">View Product</Button>
             <br />
             <small className="text-muted">Posted 3 mins ago</small>
           </Card.Footer>
@@ -155,7 +155,7 @@ export default class Products extends Component {
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Button variant="primary">View Product</Button>
+            <Button variant="dark">View Product</Button>
             <br />
             <small className="text-muted">Posted 3 mins ago</small>
           </Card.Footer>
@@ -176,7 +176,7 @@ export default class Products extends Component {
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Button variant="primary">View Product</Button>
+            <Button variant="dark">View Product</Button>
             <br />
             <small className="text-muted">Posted 3 mins ago</small>
           </Card.Footer>
@@ -197,7 +197,7 @@ export default class Products extends Component {
             </Card.Text>
           </Card.Body>
           <Card.Footer>
-            <Button variant="primary">View Product</Button>
+            <Button variant="dark">View Product</Button>
             <br />
             <small className="text-muted">Posted 3 mins ago</small>
           </Card.Footer>
