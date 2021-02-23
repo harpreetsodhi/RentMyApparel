@@ -16,17 +16,21 @@ class Header extends Component {
         className="site-header sticky-top py-1"
         style={{
           alignItems: "center",
+
           backgroundColor: "rgba(0, 0, 0, 0.851)",
         }}
       >
-        <a className="text-center" href="/">
+        <div className="text-center" href="/">
           <img
-            src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
-            width="30"
-            height="30"
+            src={window.location.origin + "/logo.svg"}
+            width="50"
+            style={{
+              fill: "white",
+            }}
+            height="50"
             alt=""
           />
-        </a>
+        </div>
         <Navbar>
           <div class="container d-flex flex-column flex-md-row justify-content-between">
             <Nav className="m-auto">
