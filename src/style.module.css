@@ -22,9 +22,3 @@
   color: white;
 }
 
-.bg-contact-image{
-  background-size: cover;
-  background-position: top center;
-  background-repeat: no-repeat;
-  overflow-y: hidden;
-}
