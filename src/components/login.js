@@ -56,7 +56,7 @@ export default class Login extends Component {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-primary btn-block">
+            <button type="submit" className="btn btn-dark btn-block">
               Sign In
             </button>
 

@@ -98,6 +98,9 @@ export default class Home extends Component {
                   lead-in to additional content. This content is a little bit
                   longer.
                 </Card.Text>
+                <Button variant="dark" href="/products">
+                  Visit Rental Store
+                </Button>
               </Card.Body>
             </Card>
             <Card>
@@ -108,6 +111,9 @@ export default class Home extends Component {
                   lead-in to additional content. This content is a little bit
                   longer.
                 </Card.Text>
+                <Button variant="dark" href="/thrift">
+                  Visit Thrift Store
+                </Button>
               </Card.Body>
               <Card.Img
                 variant="bottom"

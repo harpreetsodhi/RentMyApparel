@@ -63,16 +63,6 @@ class Header extends Component {
                   marginLeft: "10px",
                   marginRight: "10px",
                 }}
-                href="/products"
-              >
-                Products
-              </Nav.Link>
-              <Nav.Link
-                style={{
-                  color: "#EEEEEE",
-                  marginLeft: "10px",
-                  marginRight: "10px",
-                }}
                 href="/contact"
               >
                 Contact Us
