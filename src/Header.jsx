@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Button, Navbar, Nav, Form, FormControl } from "react-bootstrap";
 import styles from "./style.module.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
@@ -25,6 +25,9 @@ class Header extends Component {
           </Nav.Link>
           <Nav.Link style={{ color: "white" }} href="/products">
             Products
+          </Nav.Link>
+          <Nav.Link style={{ color: "white"}} href="/account">
+            My Account
           </Nav.Link>
         </Nav>
         <Form inline>

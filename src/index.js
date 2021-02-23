@@ -5,6 +5,7 @@ import Header from "./Header";
 import Login from "./components/login.js";
 import SignUp from "./components/signup.js";
 import Products from "./components/products.js";
+import Account from "./components/account"
 import "font-awesome/css/font-awesome.min.css";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
@@ -36,6 +37,7 @@ class Index extends Component {
           <Route path="/signup" exact component={SignUp}></Route>
           <Route path="/products" exact component={Products}></Route>
           <Route path="/contact" exact component={Contact}></Route>
+          <Route path="/account" exact component={Account}></Route>
         </BrowserRouter>
       </div>
     );
