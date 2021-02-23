@@ -166,6 +166,7 @@ export default class Home extends Component {
             />
           </Card>
         </div>
+        <Footer />
       </div>
     );
   }
