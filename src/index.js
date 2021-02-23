@@ -9,6 +9,12 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Thrift from "./components/thrift.js";
 import Contact from "./components/contact.js"
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 class Index extends Component {
   // https://stackoverflow.com/questions/46845543/react-bootstrap-tab-not-changing-content
@@ -29,6 +35,10 @@ class Index extends Component {
     return (
       <div>
         <Header></Header>
+        <BrowserRouter>
+          <Route path="/login" exact component={Login}></Route>
+          <Route path="/signup" exact component={SignUp}></Route>
+        </BrowserRouter>
 
         <div
           class="rows justify-content-center"

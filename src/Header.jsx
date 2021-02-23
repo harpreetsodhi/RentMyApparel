@@ -2,6 +2,12 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import { Button, Navbar, Nav, Form, FormControl } from "react-bootstrap";
 import styles from "./style.module.css";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
@@ -12,23 +18,14 @@ class Header extends Component {
   render = () => {
     return (
       <Navbar className={styles.nav}>
-        <Navbar.Brand style={{ color: "white" }} href="#home">
+        <Navbar.Brand style={{ color: "white" }} href="/">
           Rent My Apperal
         </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link style={{ color: "white" }} href="#home">
-            Home
-          </Nav.Link>
-          <Nav.Link style={{ color: "white" }} href="#thrift">
-            Thrift Store
-          </Nav.Link>
-          <Nav.Link style={{ color: "white" }} href="#donation">
-            Donation
-          </Nav.Link>
-          <Nav.Link style={{ color: "white" }} href="#features">
+          <Nav.Link style={{ color: "white" }} href="/login">
             Login
           </Nav.Link>
-          <Nav.Link style={{ color: "white" }} href="#pricing">
+          <Nav.Link style={{ color: "white" }} href="/signup">
             Sign Up
           </Nav.Link>
         </Nav>

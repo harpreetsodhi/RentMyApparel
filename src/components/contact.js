@@ -31,7 +31,7 @@ return (
             placeholder="Message"/>
         </div>
 
-        <button type="submit" className="btn btn-primary btn-block">
+        <button type="submit" className="btn btn-dark">
           Contact Us
         </button>
         </div>
