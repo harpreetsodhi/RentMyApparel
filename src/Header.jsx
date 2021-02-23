@@ -20,17 +20,20 @@ class Header extends Component {
           backgroundColor: "rgba(0, 0, 0, 0.851)",
         }}
       >
-        <div className="text-center" href="/">
-          <img
-            src={window.location.origin + "/logo.png"}
-            width="50"
-            style={{
-              fill: "white",
-            }}
-            height="50"
-            alt=""
-          />
+        <div className="text-center">
+          <a href="/">
+            <img
+              src={window.location.origin + "/logo.png"}
+              width="50"
+              style={{
+                fill: "white",
+              }}
+              height="50"
+              alt=""
+            />
+          </a>
         </div>
+
         <Navbar>
           <div class="container d-flex flex-column flex-md-row justify-content-between">
             <Nav className="m-auto">
