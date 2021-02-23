@@ -152,7 +152,7 @@ export default class Home extends Component {
                 <h5>“Alone we can do so little; together we can do so much”</h5>
                 <h6>-Helen Keller</h6>
               </Card.Text>
-              <Button variant="dark" href="/contact">
+              <Button variant="dark" href="/donation">
                 Donation Page
               </Button>
             </Card.Body>

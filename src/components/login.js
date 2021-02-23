@@ -7,14 +7,18 @@ export default class Login extends Component {
     return (
       <div
         class="p-5 text-center bg-contact-image"
-        style={{ backgroundImage: "url(thrift.jpg)" }}
+        style={{
+          backgroundImage: "url(thrift.jpg)",
+          width: "100%",
+          height: "100%",
+        }}
       >
         <div
           class="rows justify-content-center"
           style={{
             width: "30%",
             margin: "auto",
-            // marginTop: "3%",
+            marginTop: "3%",
           }}
         >
           <form>

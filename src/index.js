@@ -5,7 +5,8 @@ import Header from "./Header";
 import Login from "./components/login.js";
 import SignUp from "./components/signup.js";
 import Products from "./components/products.js";
-import Account from "./components/account"
+import Account from "./components/account";
+import Donation from "./components/donation";
 import Home from "./components/home.js";
 import "font-awesome/css/font-awesome.min.css";
 import Tab from "react-bootstrap/Tab";
@@ -40,6 +41,7 @@ class Index extends Component {
           <Route path="/contact" exact component={Contact}></Route>
           <Route path="/account" exact component={Account}></Route>
           <Route path="/thrift" exact component={Thrift}></Route>
+          <Route path="/donation" exact component={Donation}></Route>
         </BrowserRouter>
       </div>
     );
