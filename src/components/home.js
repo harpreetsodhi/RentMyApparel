@@ -94,7 +94,7 @@ export default class Home extends Component {
                 src="https://images.unsplash.com/photo-1571867424485-369464ed33cc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80/100px160"
               />
               <Card.Body>
-                <a href="/thrift" class="btn btn-outline-dark">THRIFT STORE</a>
+              <Card.Subtitle><strong>Rental Store</strong></Card.Subtitle>
                 <Card.Text><strong>One Stop for all the apparels at an affordable price.</strong>
                 </Card.Text>
                 <Button variant="dark" href="/products">
@@ -105,7 +105,8 @@ export default class Home extends Component {
 
             <Card className="text-center">
               <Card.Body>
-                <a href="/products" class="btn btn-outline-dark">RENT APPARELS</a>
+              <Card.Subtitle><strong>Thrift Store
+                </strong></Card.Subtitle>
                 <Card.Text><strong>
                 Give yourself a never-fading fashion and feel great with fantastic costumes
                 </strong>
@@ -122,11 +123,13 @@ export default class Home extends Component {
             
             <Card className="text-center"> 
             <Card.Body>
-              <a href="/contact" class="btn btn-outline-dark">DONATION</a>
+            <Card.Subtitle><strong>Donations</strong></Card.Subtitle>
               <Card.Text><strong>
-                Give yourself a never-fading fashion and feel great with fantastic costumes
                 </strong>
               </Card.Text>
+              <Button variant="dark" href="/contact">
+                  Donation Page
+                </Button>
               </Card.Body>
               <Card.Img
                 variant="bottom"
