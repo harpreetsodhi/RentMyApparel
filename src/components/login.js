@@ -14,7 +14,7 @@ export default class Login extends Component {
           style={{
             width: "30%",
             margin: "auto",
-            marginTop: "3%",
+            // marginTop: "3%",
           }}
         >
           <form>
