@@ -1,5 +1,6 @@
 import React, { Component, useState, handleSelect } from "react";
 
+
 // Ref : https://getbootstrap.com/docs/4.1/examples/product/
 export default class Footer extends Component {
   render() {
