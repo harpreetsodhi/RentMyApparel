@@ -22,7 +22,7 @@ class Header extends Component {
       >
         <div className="text-center" href="/">
           <img
-            src={window.location.origin + "/logo.svg"}
+            src={window.location.origin + "/logo.png"}
             width="50"
             style={{
               fill: "white",
