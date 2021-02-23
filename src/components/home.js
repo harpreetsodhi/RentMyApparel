@@ -97,6 +97,9 @@ export default class Home extends Component {
                 <a href="/thrift" class="btn btn-outline-dark">THRIFT STORE</a>
                 <Card.Text><strong>One Stop for all the apparels at an affordable price.</strong>
                 </Card.Text>
+                <Button variant="dark" href="/products">
+                  Visit Rental Store
+                </Button>
               </Card.Body>
             </Card>
 
@@ -107,6 +110,9 @@ export default class Home extends Component {
                 Give yourself a never-fading fashion and feel great with fantastic costumes
                 </strong>
                 </Card.Text>
+                <Button variant="dark" href="/thrift">
+                  Visit Thrift Store
+                </Button>
               </Card.Body>
               <Card.Img
                 variant="bottom"
