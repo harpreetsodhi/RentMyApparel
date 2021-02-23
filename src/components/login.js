@@ -21,8 +21,8 @@ export default class Login extends Component {
             <h3 className="text-center">
               <strong>Log In</strong>
             </h3>
-            <div className="form-group">
-              <label>
+            <div className="form-group text-left">
+              <label class="text-left">
                 <strong>Email</strong>
               </label>
               <input
@@ -32,7 +32,7 @@ export default class Login extends Component {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group text-left">
               <label>
                 <strong>Password</strong>
               </label>
@@ -43,7 +43,7 @@ export default class Login extends Component {
               />
             </div>
 
-            <div className="form-group">
+            <div className="form-group text-left">
               <div className="custom-control custom-checkbox">
                 <input
                   type="checkbox"
