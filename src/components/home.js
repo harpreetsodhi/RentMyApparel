@@ -10,7 +10,9 @@ import {
   CardDeck,
   CardColumns,
 } from "react-bootstrap";
-
+import Thrift from "../components/thrift.js";
+import Products from "../components/products.js";
+import Contact from "../components/contact.js";
 // Ref
 // carousel: https://react-bootstrap.github.io/components/carousel/
 export default class Home extends Component {
@@ -86,30 +88,28 @@ export default class Home extends Component {
               columnCount: "2",
             }}
           >
-            <Card>
+            <Card className="text-center">
               <Card.Img
                 variant="top"
                 src="https://images.unsplash.com/photo-1571867424485-369464ed33cc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80/100px160"
               />
               <Card.Body>
-                <Card.Title>Card title that wraps to a new line</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+              <Card.Subtitle><strong>Rental Store</strong></Card.Subtitle>
+                <Card.Text><strong>One Stop for all the apparels at an affordable price.</strong>
                 </Card.Text>
                 <Button variant="dark" href="/products">
                   Visit Rental Store
                 </Button>
               </Card.Body>
             </Card>
-            <Card>
+
+            <Card className="text-center">
               <Card.Body>
-                <Card.Title>Card title that wraps to a new line</Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+              <Card.Subtitle><strong>Thrift Store
+                </strong></Card.Subtitle>
+                <Card.Text><strong>
+                Give yourself a never-fading fashion and feel great with fantastic costumes
+                </strong>
                 </Card.Text>
                 <Button variant="dark" href="/thrift">
                   Visit Thrift Store
@@ -118,6 +118,22 @@ export default class Home extends Component {
               <Card.Img
                 variant="bottom"
                 src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+              />
+            </Card>
+            
+            <Card className="text-center"> 
+            <Card.Body>
+            <Card.Subtitle><strong>Donations</strong></Card.Subtitle>
+              <Card.Text><strong>
+                </strong>
+              </Card.Text>
+              <Button variant="dark" href="/contact">
+                  Donation Page
+                </Button>
+              </Card.Body>
+              <Card.Img
+                variant="bottom"
+                src=" https://images.unsplash.com/photo-1603827457577-609e6f42a45e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80"
               />
             </Card>
           </CardColumns>
