@@ -1,5 +1,14 @@
 .bg-contact-image{
     background-size: cover;
-    background-position: center center;
+    background-position: top center;
     background-repeat: no-repeat;
+    min-height: 100vh;
+  }
+
+  .bg-contact-image form{
+    max-width: 500px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 10px;
   }

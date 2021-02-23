@@ -28,7 +28,7 @@ class Header extends Component {
           </Nav.Link>
         </Nav>
         <Form inline>
-          <Nav.Link style={{ color: "white" }} href="#contact">
+          <Nav.Link style={{ color: "white" }} href="/contact">
             Contact Us
           </Nav.Link>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />
