@@ -46,7 +46,7 @@ export default class Home extends Component {
                   objectFit: "cover",
                 }}
                 className="d-block w-100"
-                src="https://images.unsplash.com/photo-1542060748-10c28b62716f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                src="https://images.unsplash.com/photo-1591729652476-e7f587578d9c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
                 alt="Second slide"
               />
               <Carousel.Caption>
@@ -64,10 +64,14 @@ export default class Home extends Component {
                   objectFit: "cover",
                 }}
                 className="d-block w-100"
-                src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+                src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80"
                 alt="Third slide"
               />
-              <Carousel.Caption>
+              <Carousel.Caption
+                style={{
+                  color: "black",
+                }}
+              >
                 <h3>New Woman's Collection</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
