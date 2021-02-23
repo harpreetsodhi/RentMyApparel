@@ -127,7 +127,7 @@ export default class Home extends Component {
               <Card.Text><strong>
                 </strong>
               </Card.Text>
-              <Button variant="dark" href="/contact">
+              <Button variant="dark" href="/donation">
                   Donation Page
                 </Button>
               </Card.Body>
