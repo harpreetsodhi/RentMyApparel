@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "../contact.css";
+import  "../contact.css";
 const Contact = () => {
   return (
-    <form>
-      <div
+    <div
         class="p-5 text-center bg-contact-image"
-        style={{ backgroundImage: "url(maps.jpg)" }}
+        style={{ backgroundImage: "url(phone.jpg)" }}
       >
+    <form>
         <h3 className="text-center">Contact Us</h3>
         <div className="form-group">
           <label>Name</label>
@@ -26,8 +26,9 @@ const Contact = () => {
         <button type="submit" className="btn btn-dark">
           Contact Us
         </button>
-      </div>
+      
     </form>
+  </div>
   );
 };
 
