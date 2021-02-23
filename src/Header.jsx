@@ -12,32 +12,68 @@ class Header extends Component {
 
   render = () => {
     return (
-      <Navbar className={styles.nav}>
-        <Navbar.Brand style={{ color: "white" }} href="/">
-          Rent My Apperal
-        </Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link style={{ color: "white" }} href="/login">
-            Login
-          </Nav.Link>
-          <Nav.Link style={{ color: "white" }} href="/signup">
-            Sign Up
-          </Nav.Link>
-          <Nav.Link style={{ color: "white" }} href="/products">
-            Products
-          </Nav.Link>
-          <Nav.Link style={{ color: "white" }} href="/thrift">
-            Thrift
-          </Nav.Link>
-        </Nav>
-        <Form inline>
-          <Nav.Link style={{ color: "white" }} href="/contact">
-            Contact Us
-          </Nav.Link>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-light">Search</Button>
-        </Form>
-      </Navbar>
+      <div
+        className="site-header sticky-top py-1"
+        style={{
+          alignItems: "center",
+          backgroundColor: "rgba(0, 0, 0, 0.851)",
+        }}
+      >
+        <a className="text-center" href="/">
+          <img
+            src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg"
+            width="30"
+            height="30"
+            alt=""
+          />
+        </a>
+        <Navbar>
+          <div class="container d-flex flex-column flex-md-row justify-content-between">
+            <Nav className="m-auto">
+              <Nav.Link
+                style={{
+                  color: "#EEEEEE",
+                  marginLeft: "10px",
+                  marginRight: "10px",
+                }}
+                href="/login"
+              >
+                Login
+              </Nav.Link>
+              <Nav.Link
+                style={{
+                  color: "#EEEEEE",
+                  marginLeft: "10px",
+                  marginRight: "10px",
+                }}
+                href="/signup"
+              >
+                Sign Up
+              </Nav.Link>
+              <Nav.Link
+                style={{
+                  color: "#EEEEEE",
+                  marginLeft: "10px",
+                  marginRight: "10px",
+                }}
+                href="/products"
+              >
+                Products
+              </Nav.Link>
+              <Nav.Link
+                style={{
+                  color: "#EEEEEE",
+                  marginLeft: "10px",
+                  marginRight: "10px",
+                }}
+                href="/contact"
+              >
+                Contact Us
+              </Nav.Link>
+            </Nav>
+          </div>
+        </Navbar>
+      </div>
     );
   };
 }
