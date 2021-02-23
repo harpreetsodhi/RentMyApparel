@@ -14,7 +14,7 @@ export default class SignUp extends Component {
       >
         <form>
           <h3 className="text-center"><strong>Sign Up</strong></h3>
-          <div className="form-group">
+          <div className="form-group text-left">
             <label><strong>User Name</strong></label>
             <input
               type="text"
@@ -23,7 +23,7 @@ export default class SignUp extends Component {
             />
           </div>
 
-          <div className="form-group">
+          <div className="form-group text-left">
             <label><strong>Email</strong></label>
             <input
               type="email"
@@ -32,7 +32,7 @@ export default class SignUp extends Component {
             />
           </div>
 
-          <div className="form-group">
+          <div className="form-group text-left">
             <label><strong>Password</strong></label>
             <input
               type="password"
@@ -40,7 +40,7 @@ export default class SignUp extends Component {
               placeholder="Enter password"
             />
           </div>
-          <div className="form-group">
+          <div className="form-group text-left">
             <label><strong>Confirm Password</strong></label>
             <input
               type="password"
