@@ -2,8 +2,8 @@ import React from "react";
 import styles from "../contact.css"
 const Contact = () => {
 return (
+  <div class="p-5 text-center bg-contact-image" style={{ backgroundImage: "url(phone.jpg)" }} >
     <form >
-        <div class="p-5 text-center bg-contact-image" style={{ backgroundImage: "url(maps.jpg)" }} >
         <h3 className="text-center" >
                     Contact Us
         </h3>
@@ -34,8 +34,9 @@ return (
         <button type="submit" className="btn btn-dark">
           Contact Us
         </button>
-        </div>
-</form>  
+        
+</form> 
+</div> 
 )
 }
 
