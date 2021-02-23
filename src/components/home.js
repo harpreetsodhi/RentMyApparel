@@ -1,6 +1,7 @@
 import React, { Component, useState, handleSelect } from "react";
 import styles from "../style.module.css";
 import { Carousel } from "react-bootstrap";
+import Footer from "../components/footer.js";
 import {
   Container,
   Row,
@@ -64,14 +65,10 @@ export default class Home extends Component {
                   objectFit: "cover",
                 }}
                 className="d-block w-100"
-                src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80"
+                src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80"
                 alt="Third slide"
               />
-              <Carousel.Caption
-                style={{
-                  color: "black",
-                }}
-              >
+              <Carousel.Caption>
                 <h3>New Woman's Collection</h3>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -169,6 +166,7 @@ export default class Home extends Component {
             />
           </Card>
         </div>
+        <Footer />
       </div>
     );
   }

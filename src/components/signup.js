@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Footer from "./footer";
 
 export default class SignUp extends Component {
   render() {
@@ -85,6 +86,7 @@ export default class SignUp extends Component {
             </div>
           </form>
         </div>
+        <Footer />
       </div>
     );
   }
