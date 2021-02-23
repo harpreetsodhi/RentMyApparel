@@ -12,7 +12,6 @@ export default class SignUp extends Component {
           style={{
             width: "30%",
             margin: "auto",
-            marginTop: "3%",
           }}
         >
           <form>

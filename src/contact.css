@@ -2,7 +2,8 @@
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
-    min-height: 100vh;
+    /* min-height: 100vh;
+    overflow-y: hidden; */
   }
 
   .bg-contact-image form{
