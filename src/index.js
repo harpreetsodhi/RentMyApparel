@@ -10,6 +10,7 @@ import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
 import Thrift from "./components/thrift.js";
 import Contact from "./components/contact.js";
+import Cart from "./components/Cart.jsx";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 class Index extends Component {
@@ -36,6 +37,7 @@ class Index extends Component {
           <Route path="/signup" exact component={SignUp}></Route>
           <Route path="/products" exact component={Products}></Route>
           <Route path="/contact" exact component={Contact}></Route>
+          <Route path="/Cart" exact component={Cart}></Route>
         </BrowserRouter>
       </div>
     );

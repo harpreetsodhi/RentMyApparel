@@ -26,6 +26,9 @@ class Header extends Component {
           <Nav.Link style={{ color: "white" }} href="/products">
             Products
           </Nav.Link>
+          <Nav.Link style={{ color: "white" }} href="/Cart">
+            Cart
+          </Nav.Link>
         </Nav>
         <Form inline>
           <Nav.Link style={{ color: "white" }} href="/contact">
