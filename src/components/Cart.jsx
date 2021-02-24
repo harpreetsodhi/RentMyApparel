@@ -9,12 +9,30 @@ class Cart extends Component {
     this.state = { myValue: "value" };
   }
 
+  myFunction1 = () => {
+    var x = document.getElementById("media1");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
+  myFunction2 = () => {
+    var x = document.getElementById("media2");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
   render = () => {
     return (
         <Container>
             <br></br>
         <ul className="list-unstyled">
-        <Media as="li">
+        <Media as="li" id="media1">
           <img
             width={350}
             height={250}
@@ -33,17 +51,18 @@ class Cart extends Component {
            </svg>
            </p>
           <p class="text-left font-italic">Pickup Date: 4 Mar 2021</p>
-          <p class="text-right"><span class="font-weight-bold">Remove </span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+          <p style={{cursor: "pointer"}} class="text-right" onClick={this.myFunction1}><span class="font-weight-bold">Remove </span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
 </svg>
            </p>
 
           </Media.Body>
+          
         </Media>
-
         <hr></hr>
-        <Media as="li">
+
+        <Media as="li" id="media2">
           <img
             width={350}
             height={250}
@@ -62,7 +81,7 @@ class Cart extends Component {
            </svg>
            </p>
           <p class="text-left font-italic">Pickup Date: 2 Mar 2021</p>
-          <p class="text-right"><span class="font-weight-bold">Remove </span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+          <p  style={{cursor: "pointer"}} class="text-right"  onClick={this.myFunction2}><span class="font-weight-bold">Remove </span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
 </svg>
