@@ -10,8 +10,8 @@ export default class SignUp extends Component {
         <div
           class="rows justify-content-center"
           style={{
-            width: "30%",
             margin: "auto",
+            marginTop: "3%",
           }}
         >
           <form>
