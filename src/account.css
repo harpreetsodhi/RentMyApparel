@@ -1,4 +1,4 @@
-.bg-contact-image{
+.bg-account-page {
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
@@ -6,8 +6,7 @@
     overflow-y: hidden;
   }
 
-  .bg-contact-image form{
-    max-width: 500px;
+  .bg-account-page > .personal-info {
     margin: auto;
     background: rgba(255, 255, 255, 0.8);
     padding: 30px;
