@@ -32,11 +32,10 @@ class Cart extends Component {
         <Container>
             <br></br>
         <ul className="list-unstyled">
+            {/* https://react-bootstrap.github.io/layout/media/ */}
         <Media as="li" id="media1">
           <img
-            width={350}
-            height={250}
-            className="mr-3"
+            className="w-50 p-3"
             src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
             alt="Generic placeholder"
           />
@@ -64,9 +63,7 @@ class Cart extends Component {
 
         <Media as="li" id="media2">
           <img
-            width={350}
-            height={250}
-            className="mr-3"
+           className="w-50 p-3"
             src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
             alt="Generic placeholder"
           />
