@@ -6,7 +6,7 @@ class Donation extends Component {
     return (
       <div
         className="p-5 text-center bg-contact-image"
-        style={{ backgroundImage: "url(donate.jpg)" }}
+        style={{ backgroundImage: "url(donation.jpg)" }}
       >
         <Form style={{ maxWidth: "1000px" }}>
           <h3 className="text-center">Donate</h3>

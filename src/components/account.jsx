@@ -7,7 +7,7 @@ class Account extends Component {
   render = () => {
     return (
       <div className="p-5 text-center bg-account-page"
-        style={{ backgroundImage: "url(parcelDelivery.jpeg)" }}>
+        style={{ backgroundImage: "url(personalDetails.jpg)" }}>
         <Container className="personal-info" fluid="sm" style={{ marginTop: "3%", marginBottom: "3%" }}>
           <Form>
             <h3 className="text-center">Personal Details</h3>
