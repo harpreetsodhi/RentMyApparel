@@ -1,0 +1,9 @@
+.header__basketCount{
+    align-items: center;
+}
+
+.header__optionBasket{
+    padding-left: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
+}

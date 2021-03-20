@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Nav, Form, Button, Image } from "react-bootstrap";
-import "../account.css";
+import "../css/account.css";
 
 class Account extends Component {
 
