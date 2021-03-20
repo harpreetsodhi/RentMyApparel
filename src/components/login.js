@@ -1,89 +1,145 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
+import axios from "axios";
+import Alert from "react-bootstrap/Alert";
 import styles from "../style.module.css";
 
+// eslint-disable-next-line react-hooks/rules-of-hooks
+
 //  Ref: https://www.positronx.io/build-react-login-sign-up-ui-template-with-bootstrap-4/
-export default class Login extends Component {
-  render() {
-    return (
+const API_BASE_URL = "https://rent-my-apparel-backend.herokuapp.com/api";
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [alertMessage, setAlertMessage] = useState("Enter Credentials to login");
+  const [alertColor, setAlertColor] = useState("primary");
+
+  const handleSubmitClick = (e) => {
+    e.preventDefault();
+    if (true) {
+      requestToServer();
+    } else {
+      // props.showError('Passwords do not match');
+    }
+  };
+
+  const requestToServer = () => {
+    if (email.length && password.length) {
+      let payload = {
+        user_email: email,
+        user_password: password,
+      };
+      console.log(payload)
+      axios
+        .post(API_BASE_URL + "/login", payload,   { 'Content-Type': 'application/x-www-form-urlencoded' })
+        .then(function (response) {
+          console.log(response.status)
+          if (response.status === 200) {
+            setAlertColor("success")
+            setAlertMessage(response["data"]["message"])
+          }
+        })
+        .catch(function (error) {
+          console.log();
+          setAlertColor("danger")
+          setAlertMessage(error.response["data"]["message"])
+        });
+    } else {
+      console.log("Please enter valid username and password");
+    }
+  };
+  return (
+    <div
+      className="p-5 text-center bg-contact-image"
+      style={{
+        backgroundImage: "url(thrift.jpg)",
+        width: "100%",
+        height: "100%",
+      }}
+    >
       <div
-        class="p-5 text-center bg-contact-image"
+        className="rows justify-content-center"
         style={{
-          backgroundImage: "url(thrift.jpg)",
-          width: "100%",
-          height: "100%",
+          margin: "auto",
+          marginTop: "3%",
         }}
       >
-        <div
-          class="rows justify-content-center"
-          style={{
-            margin: "auto",
-            marginTop: "3%",
-          }}
-        >
-          <form>
-            <h3 className="text-center">
-              <strong>Log In</strong>
-            </h3>
-            <div className="form-group text-left">
-              <label class="text-left">
-                <strong>Email</strong>
-              </label>
+        <form>
+          <h3 className="text-center">
+            <strong>Log In</strong>
+          </h3>
+          <Alert variant={alertColor}>
+            {alertMessage}
+          </Alert>
+          <div className="form-group text-left">
+            <label className="text-left">
+              <strong>Email</strong>
+            </label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              className="form-control"
+              placeholder="Enter email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+
+          <div className="form-group text-left">
+            <label>
+              <strong>Password</strong>
+            </label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              className="form-control"
+              placeholder="Enter password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+
+          <div className="form-group text-left">
+            <div className="custom-control custom-checkbox">
               <input
-                type="email"
-                className="form-control"
-                placeholder="Enter email"
+                type="checkbox"
+                className="custom-control-input"
+                id="customCheck1"
               />
-            </div>
-
-            <div className="form-group text-left">
-              <label>
-                <strong>Password</strong>
+              <label className="custom-control-label" htmlFor="customCheck1">
+                <strong>Remember me</strong>
               </label>
-              <input
-                type="password"
-                className="form-control"
-                placeholder="Enter password"
-              />
             </div>
+          </div>
 
-            <div className="form-group text-left">
-              <div className="custom-control custom-checkbox">
-                <input
-                  type="checkbox"
-                  className="custom-control-input"
-                  id="customCheck1"
-                />
-                <label className="custom-control-label" htmlFor="customCheck1">
-                  <strong>Remember me</strong>
-                </label>
-              </div>
-            </div>
+          <button
+            type="submit"
+            className="btn btn-dark btn-block"
+            onClick={handleSubmitClick}
+          >
+            Sign In
+          </button>
 
-            <button type="submit" className="btn btn-dark btn-block">
-              Sign In
+          <div className="text-center">
+            <p className="m-2">
+              New member? <a href="/signup">Sign Up</a>
+            </p>
+            <p>or Sign In with:</p>
+            <button type="button" className="btn btn-danger btn-circle  m-1">
+              <i className="fa fa-google"></i>
             </button>
-
-            <div class="text-center">
-              <p class="m-2">
-                New member? <a href="/signup">Sign Up</a>
-              </p>
-              <p>or Sign In with:</p>
-              <button type="button" class="btn btn-danger btn-circle  m-1">
-                <i class="fa fa-google"></i>
-              </button>
-              <button type="button" class="btn btn-info btn-circle  m-1">
-                <i class="fa fa-twitter"></i>
-              </button>
-              <button type="button" class="btn btn-dark btn-circle m-1">
-                <i class="fa fa-github"></i>
-              </button>
-              <button type="button" class="btn btn-primary btn-circle  m-1">
-                <i class="fa fa-facebook"></i>
-              </button>
-            </div>
-          </form>
-        </div>
+            <button type="button" className="btn btn-info btn-circle  m-1">
+              <i className="fa fa-twitter"></i>
+            </button>
+            <button type="button" className="btn btn-dark btn-circle m-1">
+              <i className="fa fa-github"></i>
+            </button>
+            <button type="button" className="btn btn-primary btn-circle  m-1">
+              <i className="fa fa-facebook"></i>
+            </button>
+          </div>
+        </form>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+export default Login;
