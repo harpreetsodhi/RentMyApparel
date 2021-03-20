@@ -3,8 +3,8 @@ import axios from "axios";
 import Alert from "react-bootstrap/Alert";
 import styles from "../style.module.css";
 
-// eslint-disable-next-line react-hooks/rules-of-hooks
 
+// AUTHOR : NEELKANTH DABHI
 //  Ref: https://www.positronx.io/build-react-login-sign-up-ui-template-with-bootstrap-4/
 const API_BASE_URL = "https://rent-my-apparel-backend.herokuapp.com/api";
 const Login = () => {
