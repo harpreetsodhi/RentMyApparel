@@ -1,16 +1,15 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import styles from "../style.module.css";
+
 import {
-  Container,
-  Row,
-  Col,
   Card,
   Button,
-  CardDeck,
   CardColumns,
 } from "react-bootstrap";
+
 export default class Thrift extends Component {
   render() {
+
     return (
       <form>
         <h3 className="text-center">
@@ -26,18 +25,26 @@ export default class Thrift extends Component {
                 />
                 <Card.Subtitle className="text-center">$20</Card.Subtitle>
                 <Card.Text className="text-center">
-                  Fleece Winter Jacket.{" "}
+                  <a href="#">
+                  Fleece Winter Jacket{" "}
+                  </a>
                 </Card.Text>
                 <Card.Footer>
-                  <Button variant="btn btn-outline-primary">Quick View</Button>
-                  <Button variant="btn btn-outline-success">Add to Cart</Button>
+                  {/* <Button variant="btn btn-outline-primary">Quick View</Button> */}
+                  <div className="col text-center">
+                  <Button variant="btn btn-outline-success" >Add to Cart</Button>
+                  </div>
                   <br />
+                  <div className="col text-center">
                   <small className="text-muted" className="text-center">
                     Posted 3 mins ago
                   </small>
+                  </div>
                 </Card.Footer>
               </Card.Body>
             </Card>
+
+
 
             <Card>
               <Card.Body>
@@ -46,24 +53,27 @@ export default class Thrift extends Component {
                   src=" https://images.unsplash.com/photo-1560060141-7b9018741ced?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=799&q=80"
                 />
                 <Card.Subtitle className="text-center">$10</Card.Subtitle>
-                <Card.Text className="text-center">Winter Cap. </Card.Text>
+                <Card.Text className="text-center">
+                <a href="#">
+                Winter Cap
+                </a>
+                  </Card.Text>
                 <Card.Footer>
-                  <Button
-                    variant="btn btn-outline-primary"
-                    className="text-center"
-                  >
-                    Quick View
-                  </Button>
+                  <div class="col text-center">
                   <Button
                     variant="btn btn-outline-success"
-                    className="text-center"
-                  >
+                    className="text-center">
                     Add to Cart
                   </Button>
+                  </div>
+                  
                   <br />
+                  <div className="col text-center">
                   <small className="text-muted" className="text-center">
                     Posted 10 mins ago
                   </small>
+                  </div>
+                  
                 </Card.Footer>
               </Card.Body>
             </Card>
@@ -76,18 +86,19 @@ export default class Thrift extends Component {
                 />
                 <Card.Subtitle className="text-center">$80</Card.Subtitle>
                 <Card.Text className="text-center">
-                  Jimmy Choo Shoes.{" "}
+                <a href="#">
+                Jimmy Choo Shoes{" "}
+                </a>
                 </Card.Text>
                 <Card.Footer>
-                  <Button
-                    variant="btn btn-outline-primary"
-                    className="text-center"
-                  >
-                    Quick View
-                  </Button>
-                  <Button variant="btn btn-outline-success">Add to Cart</Button>
+                <div className="col text-center">
+                <Button variant="btn btn-outline-success">Add to Cart</Button>
+                </div>
                   <br />
+                  <div className="col text-center">
                   <small className="text-muted">Posted 5 hours ago</small>
+                  </div>
+                  
                 </Card.Footer>
               </Card.Body>
             </Card>
@@ -100,23 +111,24 @@ export default class Thrift extends Component {
                 />
                 <Card.Subtitle className="text-center">$60</Card.Subtitle>
                 <Card.Text className="text-center">
-                  Nike Air Force 1 (White).{" "}
+                <a href="#">
+                Nike Air Force 1 (White){" "}
+                </a>
                 </Card.Text>
                 <Card.Footer>
-                  <Button
-                    variant="btn btn-outline-primary"
-                    className="text-center"
-                  >
-                    Quick View
-                  </Button>
-                  <Button
+                <div className="col text-center">
+                <Button
                     variant="btn btn-outline-success"
                     className="text-center"
                   >
                     Add to Cart
                   </Button>
+                </div>
                   <br />
+                  <div className="col text-center">
                   <small className="text-muted">Posted 3 hours ago</small>
+                  </div>
+                 
                 </Card.Footer>
               </Card.Body>
             </Card>
@@ -129,18 +141,20 @@ export default class Thrift extends Component {
                 />
                 <Card.Subtitle className="text-center">$12</Card.Subtitle>
                 <Card.Text className="text-center">
-                  Fuzzyy Slippers (Pink).{" "}
+                <a href="#">
+                Fuzzyy Slippers (Pink){" "}
+                </a>
+                  
                 </Card.Text>
                 <Card.Footer>
-                  <Button
-                    variant="btn btn-outline-primary"
-                    className="text-center"
-                  >
-                    Quick View
-                  </Button>
-                  <Button variant="btn btn-outline-success">Add to Cart</Button>
+                <div className="col text-center">
+                <Button variant="btn btn-outline-success">Add to Cart</Button>
+                </div>                  
                   <br />
+                  <div className="col text-center">
                   <small className="text-muted">Posted 5 hours ago</small>
+                  </div>
+                  
                 </Card.Footer>
               </Card.Body>
             </Card>
@@ -153,18 +167,18 @@ export default class Thrift extends Component {
                 />
                 <Card.Subtitle className="text-center">$45</Card.Subtitle>
                 <Card.Text className="text-center">
-                  Denim Jeans (Set of 3).{" "}
+                <a href="#">
+                Denim Jeans (Set of 3){" "}
+                </a>
                 </Card.Text>
                 <Card.Footer>
-                  <Button
-                    variant="btn btn-outline-primary"
-                    className="text-center"
-                  >
-                    Quick View
-                  </Button>
-                  <Button variant="btn btn-outline-success">Add to Cart</Button>
-                  <br />
-                  <small className="text-muted">Posted 1 day ago</small>
+                <div className="col text-center">
+                <Button variant="btn btn-outline-success">Add to Cart</Button>
+                </div>
+                <br />
+                <div className="col text-center">
+                <small className="text-muted">Posted 1 day ago</small>
+                </div>
                 </Card.Footer>
               </Card.Body>
             </Card>
