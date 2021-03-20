@@ -11,7 +11,7 @@ import {
   CardDeck,
   CardColumns,
 } from "react-bootstrap";
-import Thrift from "../components/thrift.js";
+import thrift from "../components/thrift.js";
 import Products from "../components/products.js";
 import Contact from "../components/contact.js";
 // Ref
