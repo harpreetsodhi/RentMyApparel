@@ -39,7 +39,7 @@ class Cart extends Component {
           <Media as="li" key={item.product_id} value={item.product_id}>
           <img
             className="w-50 p-3"
-            src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+            src={item.product_img}
             alt="Generic placeholder"
           />
           <Media.Body>
