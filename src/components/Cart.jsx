@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios';
 import ReactDOM from "react-dom";
 import { Container, Media, Row, Col } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -6,86 +7,59 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 class Cart extends Component {
   constructor(props) {
     super(props);
-    this.state = { myValue: "value" };
+    this.state = {
+      items: []
+    };
   }
 
-  myFunction1 = () => {
-    var x = document.getElementById("media1");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+  removeFromCart = (product_id) => {
+    axios.get("https://rent-my-apparel-backend.herokuapp.com/api/cart/admin/"+product_id)
+    this.setState({items: this.state.items.filter(function(item) { 
+      return item.product_id !== product_id
+    })});
   }
 
-  myFunction2 = () => {
-    var x = document.getElementById("media2");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    } else {
-      x.style.display = "none";
-    }
+  async componentDidMount() {
+    const { data: items }  = await axios.get("https://rent-my-apparel-backend.herokuapp.com/api/cart/admin")
+    this.setState({ items });
   }
 
   render = () => {
+
+    const { items } = this.state; 
     return (
         <Container>
             <br></br>
         <ul className="list-unstyled">
-            {/* https://react-bootstrap.github.io/layout/media/ */}
-        <Media as="li" id="media1">
+          {items.map((item) => (
+          <Media as="li" key={item.product_id} value={item.product_id}>
           <img
             className="w-50 p-3"
             src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
             alt="Generic placeholder"
           />
           <Media.Body>
-          <p>
-            <h3>Black coat</h3>
-            <h5 class="text-right">39.0 CAD</h5>
-          </p>
-          <p class="text-left font-italic">Delivery Date: 28 Feb 2021</p>
-          <p><span class="font-weight-bold">3 days </span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-           </svg>
-           </p>
-          <p class="text-left font-italic">Pickup Date: 4 Mar 2021</p>
-          <p style={{cursor: "pointer"}} class="text-right" onClick={this.myFunction1}><span class="font-weight-bold">Remove </span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-</svg>
+            <br></br>
+          <h3>{item.product_title}</h3>
+          <br></br>
+
+           <h5 className="text-right">{item.product_price} CAD</h5>
+            <br></br>
+
+          <p className="text-right"><span className="font-weight-bold ">Size: {item.product_size}</span></p>
+           <br></br>
+
+           <p style={{cursor: "pointer"}} className="text-right"  onClick={ () => this.removeFromCart(item.product_id) }><span className="font-weight-bold">Remove </span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash" viewBox="0 0 16 16">
+             <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+              <path fillRule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+            </svg>
            </p>
 
           </Media.Body>
-          
+          <hr></hr>
         </Media>
-        <hr></hr>
+      ))}
 
-        <Media as="li" id="media2">
-          <img
-           className="w-50 p-3"
-            src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            alt="Generic placeholder"
-          />
-          <Media.Body>
-          <p>
-            <h3>Blazer</h3>
-            <h5 class="text-right">13.0 CAD</h5>
-          </p>
-          <p class="text-left font-italic">Delivery Date: 28 Feb 2021</p>
-          <p><span class="font-weight-bold">1 day </span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
-            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
-           </svg>
-           </p>
-          <p class="text-left font-italic">Pickup Date: 2 Mar 2021</p>
-          <p  style={{cursor: "pointer"}} class="text-right"  onClick={this.myFunction2}><span class="font-weight-bold">Remove </span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-</svg>
-           </p>
-
-          </Media.Body>
-        </Media>
       </ul>
       </Container>
     );
