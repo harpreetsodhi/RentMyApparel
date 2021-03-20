@@ -1,3 +1,5 @@
+// @Author - Harpreet Singh
+
 import React, { Component } from "react";
 import axios from 'axios';
 import ReactDOM from "react-dom";
@@ -12,6 +14,7 @@ class Cart extends Component {
     };
   }
 
+  // function to remove the items from the cart
   removeFromCart = (product_id) => {
     axios.get("https://rent-my-apparel-backend.herokuapp.com/api/cart/admin/"+product_id)
     this.setState({items: this.state.items.filter(function(item) { 
@@ -19,14 +22,15 @@ class Cart extends Component {
     })});
   }
 
+  // load the api when the component loads
   async componentDidMount() {
     const { data: items }  = await axios.get("https://rent-my-apparel-backend.herokuapp.com/api/cart/admin")
     this.setState({ items });
   }
 
   render = () => {
-
     const { items } = this.state; 
+    // render the cart items on the UI
     return (
         <Container>
             <br></br>
