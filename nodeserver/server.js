@@ -14,7 +14,7 @@ app.use("/", router);
 // app.listen(5000, () => console.log("Server Running"));
 
 mongoose
-	.connect("mongodb+srv://Shivani0109:Shivani1998@cluster0.jxphq.mongodb.net", { useNewUrlParser: true,  useUnifiedTopology: true })
+	.connect("mongodb+srv://Shivani0109:Shivani1998@cluster0.jxphq.mongodb.net/RentmyApparel?retryWrites=true&w=majority", { useNewUrlParser: true,  useUnifiedTopology: true })
 	.then(() => {
 
 		app.get('/', (req, res) => {
