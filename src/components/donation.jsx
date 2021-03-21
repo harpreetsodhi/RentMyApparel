@@ -1,3 +1,5 @@
+// @Author - Rajveen Singh
+
 import React, { Component } from "react";
 import { Container, Row, Col, Nav, Form, Button, Image, Alert } from "react-bootstrap";
 const axios = require('axios');
@@ -46,7 +48,7 @@ class Donation extends Component {
           desc: desc,
           image: result
         }
-        const data = axios.post('http://localhost:5000/api/donate', dataToSend)
+        const data = axios.post('https://rent-my-apparel-backend.herokuapp.com/api/donate', dataToSend)
         .then((res) => {
           console.log(res);
           if (res.data.success) {
