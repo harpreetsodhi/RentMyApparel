@@ -1,3 +1,4 @@
+//Author - Shivani Sharma
 import React , { useState }from "react";
 import "../css/contact.css";
 
@@ -13,8 +14,9 @@ const Contact = () => {
       email: email.value,
       message: message.value,
     };
+    console.log(details);
 
-    let response = await fetch("http://localhost:5000/contact", {
+    let response = await fetch("https://rent-my-apparel-backend.herokuapp.com/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -27,7 +29,7 @@ const Contact = () => {
   };
     return (
       <div
-        class="p-5 text-center bg-contact-image"
+        className="p-5 text-center bg-contact-image"
         style={{ backgroundImage: "url(phone.jpg)" }}
       >
         <form id="contact-form" onSubmit={handleSubmit} action="/submit" method= "POST" >

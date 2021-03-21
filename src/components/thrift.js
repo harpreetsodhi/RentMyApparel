@@ -1,6 +1,7 @@
+//Author - Shivani Sharma
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import {connect} from 'react-redux';
 import {
   Card,
   Button,
@@ -14,11 +15,12 @@ class Thrift extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      products: []
+      products: [], 
+      users:[],
     }
   }
   componentDidMount(){
-    axios.get("http://localhost:5000/api/products",{
+    axios.get("https://rent-my-apparel-backend.herokuapp.com/api/products",{
       // headers:{
       //   "content-type": "application/json"
       // }
@@ -26,6 +28,7 @@ class Thrift extends React.Component {
       console.log(res);
       this.setState({products: res.data.result})
     }).catch(err=>console.log(err))
+
   }
 
   render() {
@@ -34,7 +37,7 @@ class Thrift extends React.Component {
         <h1 className="text-left">
           <strong>Thrift Store</strong>
         </h1>
-        <div class="card-deck">
+        <div className="card-deck">
           <CardColumns>
             {
               this.state.products.map(product => {
