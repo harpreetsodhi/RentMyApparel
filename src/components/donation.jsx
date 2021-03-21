@@ -15,12 +15,14 @@ class Donation extends Component {
     };
   }
 
+  // https://bezkoder.com/react-image-upload-preview/
   selectFile = (event) => {
     this.setState({
       currentFile: event.target.files[0]
     });
   }
 
+  // https://stackoverflow.com/questions/47195119/how-to-capture-filereader-base64-as-variable
   getBase64 = (file) => {
     return new Promise(function (resolve, reject) {
       var reader = new FileReader();
@@ -38,6 +40,7 @@ class Donation extends Component {
 
     if (name && email && desc && file) {
 
+      // https://stackoverflow.com/questions/47195119/how-to-capture-filereader-base64-as-variable
       event.preventDefault();
       var promise = this.getBase64(file);
       promise.then((result) => {
