@@ -29,10 +29,6 @@ class Thrift extends React.Component {
       this.setState({products: res.data.result})
     }).catch(err=>console.log(err))
 
-    axios.post("http://localhost:5000/api/cart/:user_id/:product_id" , (req,res)=>{
-      const user_id = req.params.user_id;
-      const product_id = req.params.product_id;
-    })
   }
 
   render() {
