@@ -53,7 +53,7 @@ class Thrift extends React.Component {
             {
               this.state.products.map(product => {
                 return(
-                  <Card>
+                  <Card key={product.product_id} value={product.product_id}>
                     <Card.Body>
                       <Card.Img
                         variant="top"
