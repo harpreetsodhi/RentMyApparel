@@ -1,3 +1,4 @@
+//Author - Shivani Sharma
 import React , { useState }from "react";
 import "../css/contact.css";
 
@@ -14,7 +15,7 @@ const Contact = () => {
       message: message.value,
     };
 
-    let response = await fetch("http://localhost:5000/contact", {
+    let response = await fetch("http://localhost:5000/api/contact", {
       method: "POST",
       headers: {
         "Content-Type": "application/json;charset=utf-8",
@@ -27,7 +28,7 @@ const Contact = () => {
   };
     return (
       <div
-        class="p-5 text-center bg-contact-image"
+        className="p-5 text-center bg-contact-image"
         style={{ backgroundImage: "url(phone.jpg)" }}
       >
         <form id="contact-form" onSubmit={handleSubmit} action="/submit" method= "POST" >

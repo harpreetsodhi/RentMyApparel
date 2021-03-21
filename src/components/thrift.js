@@ -1,6 +1,7 @@
+//Author - Shivani Sharma
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import {connect} from 'react-redux';
 import {
   Card,
   Button,
@@ -14,7 +15,8 @@ class Thrift extends React.Component {
   constructor(props){
     super(props);
     this.state={
-      products: []
+      products: [], 
+      users:[],
     }
   }
   componentDidMount(){
@@ -26,6 +28,11 @@ class Thrift extends React.Component {
       console.log(res);
       this.setState({products: res.data.result})
     }).catch(err=>console.log(err))
+
+    axios.post("http://localhost:5000/cart/:user_id/:product_id" , (req,res)=>{
+      const user_id = req.params.user_id;
+      const product_id = req.params.product_id;
+    })
   }
 
   render() {
@@ -34,7 +41,7 @@ class Thrift extends React.Component {
         <h1 className="text-left">
           <strong>Thrift Store</strong>
         </h1>
-        <div class="card-deck">
+        <div className="card-deck">
           <CardColumns>
             {
               this.state.products.map(product => {
