@@ -1,6 +1,5 @@
 import React, { Component, useState, handleSelect } from "react";
 
-
 // Ref : https://getbootstrap.com/docs/4.1/examples/product/
 export default class Footer extends Component {
   render() {
@@ -52,8 +51,13 @@ export default class Footer extends Component {
           <div class="col-6 col-md">
             <h5>About</h5>
             <ul class="list-unstyled text-small">
-              <li>
+            <li>
                 <a class="text-muted" href="/contact">
+                  Frequently Asked Questions
+                </a>
+              </li>
+              <li>
+                <a class="text-muted" href="/team">
                   Team
                 </a>
               </li>
