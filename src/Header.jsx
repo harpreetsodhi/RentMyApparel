@@ -41,7 +41,6 @@ function UserHeader(props) {
                 marginLeft: "10px",
                 marginRight: "10px",
               }}
-              href="/login"
             >
               Hello {localStorage.getItem("current_user_name")} !
             </Nav.Link>
