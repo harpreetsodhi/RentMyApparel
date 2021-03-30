@@ -12,9 +12,6 @@ import {
   CardDeck,
   CardColumns,
 } from "react-bootstrap";
-import thrift from "../components/thrift.js";
-import Products from "../components/products.js";
-import Contact from "../components/contact.js";
 // Ref
 // carousel: https://react-bootstrap.github.io/components/carousel/
 export default class Home extends Component {

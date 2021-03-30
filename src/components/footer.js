@@ -52,30 +52,21 @@ export default class Footer extends Component {
             <h5>About</h5>
             <ul class="list-unstyled text-small">
             <li>
-                <a class="text-muted" href="/contact">
-                  Frequently Asked Questions
+                <a class="text-muted" href="/faqs">
+                Frequently Asked Questions
                 </a>
               </li>
               <li>
                 <a class="text-muted" href="/team">
-                  Team
+                Our Team
                 </a>
               </li>
               <li>
                 <a class="text-muted" href="/contact">
-                  Locations
+                Locations
                 </a>
               </li>
-              <li>
-                <a class="text-muted" href="/contact">
-                  Privacy
-                </a>
-              </li>
-              <li>
-                <a class="text-muted" href="/contact">
-                  Terms
-                </a>
-              </li>
+              
             </ul>
           </div>
         </div>

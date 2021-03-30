@@ -13,6 +13,7 @@ import Thrift from "./components/thrift.js";
 import Contact from "./components/contact.js";
 import Cart from "./components/Cart.jsx";
 import team from "./components/Team.js"
+import Faqs from "./components/Faqs.js"
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 class Index extends Component {
   // https://stackoverflow.com/questions/46845543/react-bootstrap-tab-not-changing-content
@@ -44,6 +45,7 @@ class Index extends Component {
           <Route path="/thrift" exact component={Thrift}></Route>
           <Route path="/donation" exact component={Donation}></Route>
           <Route path="/team" exact component={team}></Route>
+          <Route path="/faqs" exact component={Faqs}></Route>
         </BrowserRouter>
       </div>
     );
