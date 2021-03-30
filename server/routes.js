@@ -10,8 +10,6 @@ const bodyParser = require("body-parser");
 const productModel = require("./model/productModel");
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator/check");
-const Constants = require("./Helper/constants.js");
-const Functions = require("./Helper/functions.js");
 const donationModel = require("./model/donationModel");
 const nodemailer = require("nodemailer");
 
@@ -58,29 +56,30 @@ router.get("/cart/:user_id", async (req, res) => {
   res.send(products);
 });
 
-
 // remove an item from the cart for a specific user
 router.get("/cart/:user_id/:product_id", async (req, res) => {
-	Cart.deleteOne({user_id: req.params.user_id, product_id: req.params.product_id}, function(err){
-		if (!err) {
-            message = 'removed';
-		}
-		else {
-			message = 'error';
-    	}
-	});
-	res.status(200).send("success")
-})
+  Cart.deleteOne(
+    { user_id: req.params.user_id, product_id: req.params.product_id },
+    function (err) {
+      if (!err) {
+        message = "removed";
+      } else {
+        message = "error";
+      }
+    }
+  );
+  res.status(200).send("success");
+});
 
 // add a new item to the cart
 router.post("/cart", async (req, res) => {
-	const item = new Cart({
-     	user_id: req.body.user_id,
-		product_id: req.body.product_id
-	})
-	await item.save()
-	res.send(item)
-})
+  const item = new Cart({
+    user_id: req.body.user_id,
+    product_id: req.body.product_id,
+  });
+  await item.save();
+  res.send(item);
+});
 
 // AUTHOR : NEELKANTH DABHI
 // REF : https://dev.to/dipakkr/implementing-authentication-in-nodejs-with-express-and-jwt-codelab-1-j5i
@@ -204,51 +203,47 @@ router.post("/donate", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-
 const contactEmail = {
-	host: "smtp.gmail.com",
-	port: 465,
-	secure: true,
-	auth: {
-	  user: "ss747922@gmail.com",
-	  pass: "Shivani1998!",
-	},
-  };
-  
-  var transporter = nodemailer.createTransport(contactEmail);
-  
-  transporter.verify((error) => {
-	if (error) {
-	  console.log(error);
-	} else {
-	  console.log("Ready to Send");
-	}
-  });
-  
-  router.post("/contact", cors(), (req, res) => {
-	  const name = req.body.name;
-	  const message = req.body.message; 
-	  const email = req.body.email;
-	  const mail = {
-		from: name,
-		to: "ShivaniSharma@dal.ca",
-		subject: "Contact Form Message",
-		html: `<p>Name: ${name}</p>
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: "ss747922@gmail.com",
+    pass: "Shivani1998!",
+  },
+};
+
+var transporter = nodemailer.createTransport(contactEmail);
+
+transporter.verify((error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Ready to Send");
+  }
+});
+
+router.post("/contact", cors(), (req, res) => {
+  const name = req.body.name;
+  const message = req.body.message;
+  const email = req.body.email;
+  const mail = {
+    from: name,
+    to: "ShivaniSharma@dal.ca",
+    subject: "Contact Form Message",
+    html: `<p>Name: ${name}</p>
 			 <p>Email: ${email}</p>
 			 <p>Message: ${message}</p>`,
-	};
-  
-	transporter.sendMail(mail, (error) => {
-	  if (error) {
-		console.log(error);
-		res.json({ status: "ERROR" });
-	  } else {
-		res.json({ status: "Message Sent" });
-	  }
-	});
-  });
-  
-  
+  };
 
+  transporter.sendMail(mail, (error) => {
+    if (error) {
+      console.log(error);
+      res.json({ status: "ERROR" });
+    } else {
+      res.json({ status: "Message Sent" });
+    }
+  });
+});
 
 module.exports = router;

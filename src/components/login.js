@@ -47,7 +47,6 @@ const Login = () => {
               response["data"]["user_name"]
             );
             window.location.replace("/");
-            console.log(localStorage.getItem("current_user_id"));
           }
         })
         .catch(function (error) {

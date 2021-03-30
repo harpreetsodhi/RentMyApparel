@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import "./css/header.css";
+import { getCurrentUserID, getCurrentUserName } from "./helper/functions";
 
 const handleLogout = () => {
   localStorage.setItem("current_user_id", null);
@@ -42,7 +43,7 @@ function UserHeader(props) {
                 marginRight: "10px",
               }}
             >
-              Hello {localStorage.getItem("current_user_name")} !
+              Hello {getCurrentUserName()} !
             </Nav.Link>
 
             <Nav.Link

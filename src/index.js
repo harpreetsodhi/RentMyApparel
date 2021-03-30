@@ -15,11 +15,11 @@ import Thrift from "./components/thrift.js";
 import Contact from "./components/contact.js";
 import Cart from "./components/Cart.jsx";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import CURRENT_USER from "./helper/constants.js";
+import { getCurrentUserID, getCurrentUserName } from "./helper/functions";
 
 function getUserName() {
-  if (localStorage.getItem("current_user_id") !== "null") {
-    return localStorage.getItem("current_user_id");
+  if (getCurrentUserID() !== "null") {
+    return getCurrentUserID();
   } else {
     return null;
   }
