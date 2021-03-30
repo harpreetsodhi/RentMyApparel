@@ -6,207 +6,79 @@ import {
   Card,
   Button,
   CardDeck,
+  ListGroup,
+  ListGroupItem,
   CardColumns,
 } from "react-bootstrap";
 import Footer from "./footer";
 
+const axios = require("axios");
 export default class Products extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: [],
+    };
+  }
+
+  componentDidMount() {
+    axios
+      .get("https://rent-my-apparel-backend.herokuapp.com/api/products/rental")
+      .then((res) => {
+        console.log(res);
+        this.setState({ products: res.data.result });
+      })
+      .catch((err) => console.log(err));
+  }
+
   render() {
     return (
-      <div>
-        <CardColumns className="m-5">
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            />
-            <Card.Body>
-              <Card.Title>Product Title</Card.Title>
-              <Card.Subtitle>$ XX / Day</Card.Subtitle>
-              <Card.Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="dark">View Product</Button>
-              <br />
-              <small className="text-muted">Posted 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            />
-            <Card.Body>
-              <Card.Title>Product Title</Card.Title>
-              <Card.Subtitle>$ XX / Day</Card.Subtitle>
-              <Card.Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="dark">View Product</Button>
-              <br />
-              <small className="text-muted">Posted 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            />
-            <Card.Body>
-              <Card.Title>Product Title</Card.Title>
-              <Card.Subtitle>$ XX / Day</Card.Subtitle>
-              <Card.Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="dark">View Product</Button>
-              <br />
-              <small className="text-muted">Posted 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            />
-            <Card.Body>
-              <Card.Title>Product Title</Card.Title>
-              <Card.Subtitle>$ XX / Day</Card.Subtitle>
-              <Card.Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="dark">View Product</Button>
-              <br />
-              <small className="text-muted">Posted 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            />
-            <Card.Body>
-              <Card.Title>Product Title</Card.Title>
-              <Card.Subtitle>$ XX / Day</Card.Subtitle>
-              <Card.Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="dark">View Product</Button>
-              <br />
-              <small className="text-muted">Posted 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            />
-            <Card.Body>
-              <Card.Title>Product Title</Card.Title>
-              <Card.Subtitle>$ XX / Day</Card.Subtitle>
-              <Card.Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="dark">View Product</Button>
-              <br />
-              <small className="text-muted">Posted 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            />
-            <Card.Body>
-              <Card.Title>Product Title</Card.Title>
-              <Card.Subtitle>$ XX / Day</Card.Subtitle>
-              <Card.Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="dark">View Product</Button>
-              <br />
-              <small className="text-muted">Posted 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            />
-            <Card.Body>
-              <Card.Title>Product Title</Card.Title>
-              <Card.Subtitle>$ XX / Day</Card.Subtitle>
-              <Card.Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="dark">View Product</Button>
-              <br />
-              <small className="text-muted">Posted 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-          <Card>
-            <Card.Img
-              variant="top"
-              src="https://images.unsplash.com/photo-1497339100210-9e87df79c218?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
-            />
-            <Card.Body>
-              <Card.Title>Product Title</Card.Title>
-              <Card.Subtitle>$ XX / Day</Card.Subtitle>
-              <Card.Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.{" "}
-              </Card.Text>
-            </Card.Body>
-            <Card.Footer>
-              <Button variant="dark">View Product</Button>
-              <br />
-              <small className="text-muted">Posted 3 mins ago</small>
-            </Card.Footer>
-          </Card>
-        </CardColumns>
-        <Footer />
-      </div>
+      <form>
+        <div className="card-deck">
+          <CardColumns
+            className="m-5"
+            style={{
+              columnCount: 4,
+            }}
+          >
+            {this.state.products.map((product) => {
+              return (
+                <Card
+                  style={{ max: "18rem" }}
+                  key={product.product_id}
+                  value={product.product_id}
+                >
+                  <Card.Img
+                    className="p-3"
+                    variant="top"
+                    src={product.product_img}
+                  />
+                  <Card.Body>
+                    <Card.Title> {product.product_title}</Card.Title>
+                    <Card.Text>{product.product_desc}</Card.Text>
+                  </Card.Body>
+                  <ListGroup className="list-group-flush">
+                    <ListGroupItem>
+                      <strong>Colors: </strong>
+                      {product.product_color}
+                    </ListGroupItem>
+                    <ListGroupItem>
+                      <strong>Size: </strong>
+                      {product.product_size}
+                    </ListGroupItem>
+                    <ListGroupItem>
+                      <strong>Price: </strong>${product.product_price}
+                    </ListGroupItem>
+                  </ListGroup>
+                  <Card.Body>
+                    <Button variant="primary">Rent Product</Button>
+                  </Card.Body>
+                </Card>
+              );
+            })}
+          </CardColumns>
+        </div>
+      </form>
     );
   }
 }

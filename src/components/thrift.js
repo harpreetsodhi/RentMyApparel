@@ -2,44 +2,41 @@
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import {
-  Card,
-  Button,
-  CardColumns,
-} from "react-bootstrap";
+import { Card, Button, CardColumns } from "react-bootstrap";
 
-const axios = require('axios');
+const axios = require("axios");
 
 class Thrift extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      products: [], 
-      users:[],
-    }
+    this.state = {
+      products: [],
+      users: [],
+    };
   }
 
   // function to add the items to  cart
   addtoCart = (product_id) => {
     const item = {
       user_id: "admin",
-      product_id: product_id
-    }
-    axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item)
-    alert("Added to Cart!")
-  }
+      product_id: product_id,
+    };
+    axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
+    alert("Added to Cart!");
+  };
 
-  componentDidMount(){
-    axios.get("https://rent-my-apparel-backend.herokuapp.com/api/products",{
-      // headers:{
-      //   "content-type": "application/json"
-      // }
-    }).then(res=>{
-      console.log(res);
-      this.setState({products: res.data.result})
-    }).catch(err=>console.log(err))
-
+  componentDidMount() {
+    axios
+      .get("https://rent-my-apparel-backend.herokuapp.com/api/products", {
+        // headers:{
+        //   "content-type": "application/json"
+        // }
+      })
+      .then((res) => {
+        console.log(res);
+        this.setState({ products: res.data.result });
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -50,59 +47,53 @@ class Thrift extends React.Component {
         </h1>
         <div className="card-deck">
           <CardColumns>
-            {
-              this.state.products.map(product => {
-                return(
-                  <Card key={product.product_id} value={product.product_id}>
-                    <Card.Body>
-                      <Card.Img
-                        variant="top"
-                        src={product.product_img}
-                      />
-                      <Card.Text className="text-center">
-                        <a href="#">
-                        {product.product_title}
-                        </a>
-                      </Card.Text>
-                      <Card.Text className="text-center">
-                        Product Color - {product.product_color}
-                      </Card.Text>
-                      <Card.Text className="text-center">
+            {this.state.products.map((product) => {
+              return (
+                <Card key={product.product_id} value={product.product_id}>
+                  <Card.Body>
+                    <Card.Img variant="top" src={product.product_img} />
+                    <Card.Text className="text-center">
+                      <a href="#">{product.product_title}</a>
+                    </Card.Text>
+                    <Card.Text className="text-center">
+                      Product Color - {product.product_color}
+                    </Card.Text>
+                    <Card.Text className="text-center">
                       <strong className="text-center">
-                          {product.product_desc}
+                        {product.product_desc}
                       </strong>
-                      </Card.Text>
-                      <Card.Footer>
-                      <Card.Subtitle className="text-center">Price: ${product.product_price}</Card.Subtitle>
-                      </Card.Footer>
-                      <Card.Footer>
-                      <Card.Subtitle className="text-center">Size: {product.product_size}
+                    </Card.Text>
+                    <Card.Footer>
+                      <Card.Subtitle className="text-center">
+                        Price: ${product.product_price}
                       </Card.Subtitle>
-                      </Card.Footer>
-                      <Card.Footer>
-                        <div className="col text-center">
-                        <Button onClick={ () => this.addtoCart(product.product_id) } variant="btn btn-outline-success" >Add to Cart</Button>
-                        </div>
-                        <br />
-                        <div className="col text-center">
-                        </div>
-                      </Card.Footer>
-                    </Card.Body>
-                  </Card>
-
-                );
-              })
-            }
-            
-
-
-            
+                    </Card.Footer>
+                    <Card.Footer>
+                      <Card.Subtitle className="text-center">
+                        Size: {product.product_size}
+                      </Card.Subtitle>
+                    </Card.Footer>
+                    <Card.Footer>
+                      <div className="col text-center">
+                        <Button
+                          onClick={() => this.addtoCart(product.product_id)}
+                          variant="btn btn-outline-success"
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                      <br />
+                      <div className="col text-center"></div>
+                    </Card.Footer>
+                  </Card.Body>
+                </Card>
+              );
+            })}
           </CardColumns>
         </div>
       </form>
     );
+  }
 }
-}
-
 
 export default Thrift;
