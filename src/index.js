@@ -14,14 +14,23 @@ import Tabs from "react-bootstrap/Tabs";
 import Thrift from "./components/thrift.js";
 import Contact from "./components/contact.js";
 import Cart from "./components/Cart.jsx";
-
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import CURRENT_USER from "./helper/constants.js";
+
+function getUserName() {
+  if (localStorage.getItem("current_user_id") !== "null") {
+    return localStorage.getItem("current_user_id");
+  } else {
+    return null;
+  }
+}
 class Index extends Component {
   // https://stackoverflow.com/questions/46845543/react-bootstrap-tab-not-changing-content
   constructor(props) {
     super(props);
     this.state = {
       key: 1,
+      userName: null,
     };
     this.handleSelect = this.handleSelect.bind(this);
   }
@@ -34,7 +43,7 @@ class Index extends Component {
   render = () => {
     return (
       <div>
-        <Header></Header>
+        <Header userName={getUserName()}></Header>
         <BrowserRouter>
           <Route path="/" exact component={Home}></Route>
           <Route path="/login" exact component={Login}></Route>
@@ -45,7 +54,6 @@ class Index extends Component {
           <Route path="/account" exact component={Account}></Route>
           <Route path="/thrift" exact component={Thrift}></Route>
           <Route path="/donation" exact component={Donation}></Route>
-          
         </BrowserRouter>
       </div>
     );
