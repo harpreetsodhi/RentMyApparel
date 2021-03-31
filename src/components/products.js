@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {
   Container,
   Row,
@@ -49,13 +49,12 @@ export default class Products extends Component {
                   key={product.product_id}
                   value={product.product_id}
                 >
-                  <Link to={`/products/${product.product_id}`}>
                   <Card.Img
                     className="p-3"
                     variant="top"
                     src={product.product_img}
                   />
-                  </Link>
+
                   <Card.Body>
                     <Card.Title> {product.product_title}</Card.Title>
                     <Card.Text>{product.product_desc}</Card.Text>
@@ -74,7 +73,9 @@ export default class Products extends Component {
                     </ListGroupItem>
                   </ListGroup>
                   <Card.Body>
-                    <Button variant="primary">Rent Product</Button>
+                    <Link to={`/products/${product.product_id}`}>
+                      <Button variant="dark">Rent Product</Button>
+                    </Link>
                   </Card.Body>
                 </Card>
               );
