@@ -53,7 +53,7 @@ class Index extends Component {
           <Route path="/products" exact component={Products}></Route>
           <Route path="/contact" exact component={Contact}></Route>
           <Route path="/Cart" exact component={Cart}></Route>
-          <Route path="/SingleProduct" exact component={SingleProduct}></Route>
+          <Route path="/products/:product_id" exact component={SingleProduct}></Route>
           <Route path="/account" exact component={Account}></Route>
           <Route path="/thrift" exact component={Thrift}></Route>
           <Route path="/donation" exact component={Donation}></Route>

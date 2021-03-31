@@ -17,7 +17,7 @@ class SingleProduct extends Component {
 			eventDate: new Date(),
 			product: null
 		};
-		this.product_id = "1002"
+		this.product_id = props.match.params.product_id
 	}
 
 	// load the api when the component loads
