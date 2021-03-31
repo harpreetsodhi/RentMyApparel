@@ -15,18 +15,16 @@ class SingleProduct extends Component {
 		super(props)
 		this.state = {
 			eventDate: new Date(),
-			product: null
+			product: ""
 		};
 		this.product_id = props.match.params.product_id
 	}
 
 	// load the api when the component loads
 	async componentDidMount() {
-		axios.get("https://rent-my-apparel-backend.herokuapp.com/api/products/"+this.product_id,{
-    }).then(res=>{
-      console.log(res.data);
-      this.setState({product: res.data.product})
-    }).catch(err=>console.log(err))
+		const { data: product }  = await axios.get("https://rent-my-apparel-backend.herokuapp.com/api/products/"+this.product_id)
+    	console.log(product)
+		this.setState({ product:product });
 	}
 
 	handleChange = (date) => {
@@ -41,17 +39,18 @@ class SingleProduct extends Component {
 	}
 
   render = () => {
+	const product = this.state.product; 
 	return (
         <Container>
         <Form onSubmit={ this.onFormSubmit }>
             <Form.Row>
             <Col xs={12} md={8} sm={8}>
-                <Image className="w-100 p-3" src="https://img.ltwebstatic.com/images2_pi/2018/10/19/15399118831972976002.webp" rounded />
+                <Image className="w-100 p-3" src={product.product_img} rounded />
             </Col>
             <Col xs={12} md={4} sm={4}>
-                <h1>Sequin Skirt</h1>
-                <p>Sequin headed unicorn pattern skirt from Shein. Perfect fit and in good condition and can be used for parties.</p>
-                <p>Size: <span style={{fontWeight: "bold"}}>Small</span></p>
+                <h1>{product.product_title}</h1>
+                <p>{product.product_desc}</p>
+                <p>Size: <span style={{fontWeight: "bold"}}>{product.product_size}</span></p>
 				<Form.Group>
 					<Form.Label>Event Date: </Form.Label>
 					<br></br>
