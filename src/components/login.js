@@ -1,8 +1,6 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, browserHistory } from "react";
 import axios from "axios";
 import Alert from "react-bootstrap/Alert";
-import styles from "../style.module.css";
-
 
 // AUTHOR : NEELKANTH DABHI
 //  Ref: https://www.positronx.io/build-react-login-sign-up-ui-template-with-bootstrap-4/
@@ -10,7 +8,9 @@ const API_BASE_URL = "https://rent-my-apparel-backend.herokuapp.com/api";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [alertMessage, setAlertMessage] = useState("Enter Credentials to login");
+  const [alertMessage, setAlertMessage] = useState(
+    "Enter Credentials to login"
+  );
   const [alertColor, setAlertColor] = useState("primary");
 
   const handleSubmitClick = (e) => {
@@ -28,20 +28,31 @@ const Login = () => {
         user_email: email,
         user_password: password,
       };
-      console.log(payload)
+      console.log(payload);
       axios
-        .post(API_BASE_URL + "/login", payload,   { 'Content-Type': 'application/x-www-form-urlencoded' })
+        .post(API_BASE_URL + "/login", payload, {
+          "Content-Type": "application/x-www-form-urlencoded",
+        })
         .then(function (response) {
-          console.log(response.status)
+          console.log(response.status);
           if (response.status === 200) {
-            setAlertColor("success")
-            setAlertMessage(response["data"]["message"])
+            setAlertColor("success");
+            setAlertMessage(response["data"]["message"]);
+            localStorage.setItem(
+              "current_user_id",
+              response["data"]["user_id"]
+            );
+            localStorage.setItem(
+              "current_user_name",
+              response["data"]["user_name"]
+            );
+            window.location.replace("/");
           }
         })
         .catch(function (error) {
           console.log();
-          setAlertColor("danger")
-          setAlertMessage(error.response["data"]["message"])
+          setAlertColor("danger");
+          setAlertMessage(error.response["data"]["message"]);
         });
     } else {
       console.log("Please enter valid username and password");
@@ -67,9 +78,7 @@ const Login = () => {
           <h3 className="text-center">
             <strong>Log In</strong>
           </h3>
-          <Alert variant={alertColor}>
-            {alertMessage}
-          </Alert>
+          <Alert variant={alertColor}>{alertMessage}</Alert>
           <div className="form-group text-left">
             <label className="text-left">
               <strong>Email</strong>

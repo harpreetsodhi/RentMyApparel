@@ -11,24 +11,36 @@ import "../css/thrift.css";
 const axios = require('axios');
 
 class Thrift extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      products: [], 
-      users:[],
-    }
+    this.state = {
+      products: [],
+      users: [],
+    };
   }
-  componentDidMount(){
-    axios.get("https://rent-my-apparel-backend.herokuapp.com/api/products",{
-      // headers:{
-      //   "content-type": "application/json"
-      // }
-    }).then(res=>{
-      console.log(res);
-      this.setState({products: res.data.result})
-    }).catch(err=>console.log(err))
 
+  // function to add the items to  cart
+  addtoCart = (product_id) => {
+    const item = {
+      user_id: "admin",
+      product_id: product_id,
+    };
+    axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
+    alert("Added to Cart!");
+  };
+
+  componentDidMount() {
+    axios
+      .get("https://rent-my-apparel-backend.herokuapp.com/api/products", {
+        // headers:{
+        //   "content-type": "application/json"
+        // }
+      })
+      .then((res) => {
+        console.log(res);
+        this.setState({ products: res.data.result });
+      })
+      .catch((err) => console.log(err));
   }
 
   render() {
@@ -48,7 +60,7 @@ class Thrift extends React.Component {
             {
               this.state.products.map(product => {
                 return(
-                  <Card>
+                  <Card key={product.product_id} value={product.product_id}>
                     <Card.Body>
                       <Card.Img
                         class="card-img-top"
@@ -72,31 +84,33 @@ class Thrift extends React.Component {
                       <Card.Footer>
                       <Card.Subtitle className="text-center">Size: {product.product_size}
                       </Card.Subtitle>
-                      </Card.Footer>
-                      <Card.Footer>
-                        <div className="col text-center">
-                        <Button variant="btn btn-outline-success" >Add to Cart</Button>
-                        </div>
-                        <br />
-                        <div className="col text-center">
-                        </div>
-                      </Card.Footer>
-                    </Card.Body>
-                  </Card>
-
-                );
-              })
-            }
-            
-
-
-            
+                    </Card.Footer>
+                    <Card.Footer>
+                      <Card.Subtitle className="text-center">
+                        Size: {product.product_size}
+                      </Card.Subtitle>
+                    </Card.Footer>
+                    <Card.Footer>
+                      <div className="col text-center">
+                        <Button
+                          onClick={() => this.addtoCart(product.product_id)}
+                          variant="btn btn-outline-success"
+                        >
+                          Add to Cart
+                        </Button>
+                      </div>
+                      <br />
+                      <div className="col text-center"></div>
+                    </Card.Footer>
+                  </Card.Body>
+                </Card>
+              );
+            })}
           </CardColumns>
         </div>
       </form>
     );
+  }
 }
-}
-
 
 export default Thrift;
