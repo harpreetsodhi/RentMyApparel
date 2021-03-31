@@ -55,16 +55,16 @@ class Header extends Component {
                 Hello, User Sign-in
               </Nav.Link>
 
-              {/* <Nav.Link
+              <Nav.Link
                 style={{
                   color: "#EEEEEE",
                   marginLeft: "10px",
                   marginRight: "10px",
                 }}
-                href="/signup"
+                href="/SingleProduct"
               >
-                Sign Up
-              </Nav.Link> */}
+                Single Product
+              </Nav.Link>
 
               <Nav.Link
                 style={{
