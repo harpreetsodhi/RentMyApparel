@@ -56,6 +56,16 @@ function UserHeader(props) {
             >
               Orders
             </Nav.Link>
+              <Nav.Link
+                style={{
+                  color: "#EEEEEE",
+                  marginLeft: "10px",
+                  marginRight: "10px",
+                }}
+                href="/SingleProduct"
+              >
+                Single Product
+              </Nav.Link>
 
             <Nav.Link
               style={{

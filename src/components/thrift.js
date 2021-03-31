@@ -47,18 +47,24 @@ class Thrift extends React.Component {
         </h1>
         <div className="card-deck">
           <CardColumns>
-            {this.state.products.map((product) => {
-              return (
-                <Card key={product.product_id} value={product.product_id}>
-                  <Card.Body>
-                    <Card.Img variant="top" src={product.product_img} />
-                    <Card.Text className="text-center">
-                      <a href="#">{product.product_title}</a>
-                    </Card.Text>
-                    <Card.Text className="text-center">
-                      Product Color - {product.product_color}
-                    </Card.Text>
-                    <Card.Text className="text-center">
+            {
+              this.state.products.map(product => {
+                return(
+                  <Card key={product.product_id} value={product.product_id}>
+                    <Card.Body>
+                      <Card.Img
+                        variant="top"
+                        src={product.product_img}
+                      />
+                      <Card.Text className="text-center">
+                        <a href="#">
+                        {product.product_title}
+                        </a>
+                      </Card.Text>
+                      <Card.Text className="text-center">
+                        Product Color - {product.product_color}
+                      </Card.Text>
+                      <Card.Text className="text-center">
                       <strong className="text-center">
                         {product.product_desc}
                       </strong>
