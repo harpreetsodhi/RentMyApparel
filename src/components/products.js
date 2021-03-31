@@ -26,7 +26,9 @@ export default class Products extends Component {
     axios
       .get("https://rent-my-apparel-backend.herokuapp.com/api/products/rental")
       .then((res) => {
-        console.log(res);
+        res.data.result.sort((a, b) =>
+          a.product_price > b.product_price ? 1 : -1
+        );
         this.setState({ products: res.data.result });
       })
       .catch((err) => console.log(err));
@@ -74,7 +76,7 @@ export default class Products extends Component {
                   </ListGroup>
                   <Card.Body>
                     <Link to={`/products/${product.product_id}`}>
-                      <Button variant="dark">Rent Product</Button>
+                      <Button variant="dark">V iew Product</Button>
                     </Link>
                   </Card.Body>
                 </Card>
