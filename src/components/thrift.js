@@ -7,7 +7,7 @@ import {
   Button,
   CardColumns,
 } from "react-bootstrap";
-
+import "../css/thrift.css";
 const axios = require('axios');
 
 class Thrift extends React.Component {
@@ -34,9 +34,15 @@ class Thrift extends React.Component {
   render() {
     return (
       <form>
-        <h1 className="text-left">
-          <strong>Thrift Store</strong>
-        </h1>
+        <nav class="navbar navbar-light justify-content-between">
+          <a class="navbar-brand"> 
+          <strong> Thrift Store</strong>  
+          </a>
+          <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+          </form>
+        </nav>
+
         <div className="card-deck">
           <CardColumns>
             {
@@ -45,6 +51,7 @@ class Thrift extends React.Component {
                   <Card>
                     <Card.Body>
                       <Card.Img
+                        class="card-img-top"
                         variant="top"
                         src={product.product_img}
                       />
@@ -56,11 +63,9 @@ class Thrift extends React.Component {
                       <Card.Text className="text-center">
                         Product Color - {product.product_color}
                       </Card.Text>
-                      <Card.Text className="text-center">
-                      <strong className="text-center">
+                      <Card.Text className="description">
                           {product.product_desc}
-                      </strong>
-                      </Card.Text>
+                      </Card.Text>  
                       <Card.Footer>
                       <Card.Subtitle className="text-center">Price: ${product.product_price}</Card.Subtitle>
                       </Card.Footer>
