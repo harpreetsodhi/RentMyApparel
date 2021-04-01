@@ -59,7 +59,7 @@ class SingleProduct extends Component {
 			product_size: this.state.product.product_size,
 			product_img: this.state.product.product_img,
 			product_color: this.state.product.product_color,
-			event_date: this.state.eventDate.toISOString().substring(0,10),
+			event_date: this.state.eventDate.toISOString(),
 			product_type: this.state.product.product_type,
 			product_price: this.state.product.product_price,
 			days: this.state.days
