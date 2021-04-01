@@ -1,5 +1,5 @@
 //Author - Shivani Sharma, Neelkanth Dabhi
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { Navbar, Nav, Modal, Button } from "react-bootstrap";
 import "./css/header.css";
 import { getCurrentUserID, getCurrentUserName } from "./helper/functions";
@@ -130,7 +130,7 @@ function UserHeader(props) {
             Close
           </Button>
           <Button variant="primary" onClick={handleLogout}>
-            Yes, Logout
+            Yes, Logout.
           </Button>
         </Modal.Footer>
       </Modal>
