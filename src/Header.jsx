@@ -1,6 +1,6 @@
-//Author - Shivani Sharma
-import React, { Component } from "react";
-import { Navbar, Nav } from "react-bootstrap";
+//Author - Shivani Sharma, Neelkanth Dabhi
+import React, { Component, useState } from "react";
+import { Navbar, Nav, Modal, Button } from "react-bootstrap";
 import "./css/header.css";
 import { getCurrentUserID, getCurrentUserName } from "./helper/functions";
 
@@ -10,6 +10,11 @@ const handleLogout = () => {
 };
 
 function UserHeader(props) {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div
       className="site-header sticky-top py-1"
@@ -43,7 +48,7 @@ function UserHeader(props) {
                 marginRight: "10px",
               }}
             >
-              Hello {getCurrentUserName()} !
+              Hello {getCurrentUserName()}!
             </Nav.Link>
 
             <Nav.Link
@@ -56,27 +61,7 @@ function UserHeader(props) {
             >
               Orders
             </Nav.Link>
-              <Nav.Link
-                style={{
-                  color: "#EEEEEE",
-                  marginLeft: "10px",
-                  marginRight: "10px",
-                }}
-                href="/SingleProduct"
-              >
-                Single Product
-              </Nav.Link>
 
-            <Nav.Link
-              style={{
-                color: "#EEEEEE",
-                marginLeft: "10px",
-                marginRight: "10px",
-              }}
-              href="/contact"
-            >
-              Contact Us
-            </Nav.Link>
             <Nav.Link
               style={{
                 color: "#EEEEEE",
@@ -127,13 +112,28 @@ function UserHeader(props) {
                 marginLeft: "10px",
                 marginRight: "10px",
               }}
-              onClick={handleLogout}
+              onClick={handleShow}
             >
               Logout
             </Nav.Link>
           </Nav>
         </div>
       </Navbar>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Log out</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>Are you sure you want to log out?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="danger" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleLogout}>
+            Yes, Logout
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
