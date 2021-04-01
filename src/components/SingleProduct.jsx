@@ -24,8 +24,7 @@ class SingleProduct extends Component {
 	// load the api when the component loads
 	async componentDidMount() {
 		const { data: product }  = await axios.get("https://rent-my-apparel-backend.herokuapp.com/api/products/"+this.product_id)
-    	console.log(product)
-		this.setState({ product:product });
+    	this.setState({ product:product });
 	}
 
 	handleEventDateChange = (date) => {
@@ -42,16 +41,17 @@ class SingleProduct extends Component {
 
 	onFormSubmit(e) {
 		e.preventDefault();
+		console.log(this.state.eventDate)
 		const item = {
 			user_id: "admin",
-			product_id: this.product_id,
-			product_title: this.product.product_title,
-			product_desc: this.product.product_desc,
-			product_size: this.product.product_size,
-			product_img: this.product.product_img,
-			product_color: this.product.product_color,
-			eventDate: this.state.eventDate,
-			product_type: this.product.product_type,
+			product_id: this.state.product.product_id,
+			product_title: this.state.product.product_title,
+			product_desc: this.state.product.product_desc,
+			product_size: this.state.product.product_size,
+			product_img: this.state.product.product_img,
+			product_color: this.state.product.product_color,
+			eventDate: this.state.eventDate.toISOString().substring(0,10),
+			product_type: this.state.product.product_type,
 			days: this.state.days
 		  };
 		  axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
@@ -62,7 +62,7 @@ class SingleProduct extends Component {
 	const product = this.state.product; 
 	return (
         <Container>
-        <Form onSubmit={ this.onFormSubmit }>
+        <Form onSubmit={ this.onFormSubmit.bind(this) }>
             <Form.Row>
             <Col xs={12} md={8} sm={8}>
                 <Image className="w-100 p-3" src={product.product_img} rounded />
