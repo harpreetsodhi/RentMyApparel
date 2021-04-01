@@ -12,12 +12,13 @@ import "font-awesome/css/font-awesome.min.css";
 import Thrift from "./components/thrift.js";
 import Contact from "./components/contact.js";
 import Cart from "./components/Cart.jsx";
-import team from "./components/Team.js"
-import Faqs from "./components/Faqs.js"
+import team from "./components/Team.js";
+import Faqs from "./components/Faqs.js";
 import SingleProduct from "./components/SingleProduct.jsx";
 
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { getCurrentUserID, getCurrentUserName } from "./helper/functions";
+import Orders from "./components/orders";
 
 function getUserName() {
   if (getCurrentUserID() !== "null") {
@@ -53,12 +54,17 @@ class Index extends Component {
           <Route path="/products" exact component={Products}></Route>
           <Route path="/contact" exact component={Contact}></Route>
           <Route path="/Cart" exact component={Cart}></Route>
-          <Route path="/products/:product_id" exact component={SingleProduct}></Route>
+          <Route
+            path="/products/:product_id"
+            exact
+            component={SingleProduct}
+          ></Route>
           <Route path="/account" exact component={Account}></Route>
           <Route path="/thrift" exact component={Thrift}></Route>
           <Route path="/donation" exact component={Donation}></Route>
           <Route path="/team" exact component={team}></Route>
           <Route path="/faqs" exact component={Faqs}></Route>
+          <Route path="/orders" exact component={Orders}></Route>
         </BrowserRouter>
       </div>
     );
