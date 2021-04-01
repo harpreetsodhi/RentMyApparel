@@ -57,7 +57,7 @@ function UserHeader(props) {
                 marginLeft: "10px",
                 marginRight: "10px",
               }}
-              href="/login"
+              href="/orders"
             >
               Orders
             </Nav.Link>
@@ -129,8 +129,8 @@ function UserHeader(props) {
           <Button variant="danger" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleLogout}>
-            Yes, Logout.
+          <Button variant="success" onClick={handleLogout}>
+            Yes, Logout
           </Button>
         </Modal.Footer>
       </Modal>

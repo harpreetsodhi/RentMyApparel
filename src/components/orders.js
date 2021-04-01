@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Table } from "react-bootstrap";
+import { checkUserLogin } from "../helper/functions";
 
 function Orders(props) {
+  checkUserLogin();
   return (
     <div class="container py-5">
       <div class="row mb-4">
