@@ -45,7 +45,13 @@ class SingleProduct extends Component {
 		const item = {
 			user_id: "admin",
 			product_id: this.product_id,
+			product_title: this.product.product_title,
+			product_desc: this.product.product_desc,
+			product_size: this.product.product_size,
+			product_img: this.product.product_img,
+			product_color: this.product.product_color,
 			eventDate: this.state.eventDate,
+			product_type: this.product.product_type,
 			days: this.state.days
 		  };
 		  axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
@@ -64,6 +70,7 @@ class SingleProduct extends Component {
             <Col xs={12} md={4} sm={4}>
                 <h1>{product.product_title}</h1>
                 <p>{product.product_desc}</p>
+				<p>Color: {product.product_color}</p>
                 <p>Size: <span style={{fontWeight: "bold"}}>{product.product_size}</span></p>
 				<Form.Group>
 					<Form.Label>Event Date: </Form.Label>

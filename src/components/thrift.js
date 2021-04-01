@@ -20,10 +20,16 @@ class Thrift extends React.Component {
   }
 
   // function to add the items to  cart
-  addtoCart = (product_id) => {
+  addtoCart = (product) => {
     const item = {
       user_id: "admin",
-      product_id: product_id,
+      product_id: product.product_id,
+      product_title: product.product_title,
+			product_desc: product.product_desc,
+			product_size: product.product_size,
+			product_img: product.product_img,
+      product_color: product.product_color,
+      product_type: product.product_type
     };
     axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
     alert("Added to Cart!");
@@ -93,7 +99,7 @@ class Thrift extends React.Component {
                     <Card.Footer>
                       <div className="col text-center">
                         <Button
-                          onClick={() => this.addtoCart(product.product_id)}
+                          onClick={() => this.addtoCart(product)}
                           variant="btn btn-outline-success"
                         >
                           Add to Cart
