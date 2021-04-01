@@ -19,16 +19,23 @@ class Thrift extends React.Component {
       users:[],
     }
   }
+
+  //search a component//
+  searchProduct = (product_title) => {
+    axios.get("https://rent-my-apparel-backend.herokuapp.com/api/products/title/"+product_title).then(
+      res=>{
+        console.log(res);
+        this.setState({products: this.state.products})
+      }
+    ).catch(err=>console.log)
+  }
+
   componentDidMount(){
-    axios.get("https://rent-my-apparel-backend.herokuapp.com/api/products",{
-      // headers:{
-      //   "content-type": "application/json"
-      // }
+    axios.get("https://rent-my-apparel-backend.herokuapp.com/api/products/thrift",{
     }).then(res=>{
       console.log(res);
       this.setState({products: res.data.result})
     }).catch(err=>console.log(err))
-
   }
 
   render() {
@@ -39,7 +46,7 @@ class Thrift extends React.Component {
           <strong> Thrift Store</strong>  
           </a>
           <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={this.searchProduct.bind(this)} />
           </form>
         </nav>
 

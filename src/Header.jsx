@@ -3,13 +3,6 @@ import React, { Component } from "react";
 import { Button, Navbar, Nav, Form, FormControl } from "react-bootstrap";
 import "./css/header.css"
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  NavLink,
-} from "react-router-dom";
 
 class Header extends Component {
   constructor(props) {
