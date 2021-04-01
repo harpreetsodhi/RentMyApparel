@@ -41,7 +41,6 @@ class SingleProduct extends Component {
 
 	onFormSubmit(e) {
 		e.preventDefault();
-		console.log(this.state.eventDate)
 		const item = {
 			user_id: "admin",
 			product_id: this.state.product.product_id,
@@ -50,12 +49,13 @@ class SingleProduct extends Component {
 			product_size: this.state.product.product_size,
 			product_img: this.state.product.product_img,
 			product_color: this.state.product.product_color,
-			eventDate: this.state.eventDate.toISOString().substring(0,10),
+			event_date: this.state.eventDate.toISOString().substring(0,10),
 			product_type: this.state.product.product_type,
+			product_price: this.state.product.product_price,
 			days: this.state.days
-		  };
-		  axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
-		  alert("Added to Cart!");
+		};
+		axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
+		alert("Added to Cart!");
 	}
 
   render = () => {

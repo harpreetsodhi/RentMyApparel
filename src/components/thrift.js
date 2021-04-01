@@ -29,7 +29,8 @@ class Thrift extends React.Component {
 			product_size: product.product_size,
 			product_img: product.product_img,
       product_color: product.product_color,
-      product_type: product.product_type
+      product_type: product.product_type,
+      product_price: product.product_price,
     };
     axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
     alert("Added to Cart!");
