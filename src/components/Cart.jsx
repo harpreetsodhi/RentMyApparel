@@ -3,20 +3,30 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import ReactDOM from "react-dom";
-import { Container, Media, Row, Col } from "react-bootstrap";
+import { Container, Media, Row, Col, Button } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: []
+      items: [],
+      total_price: 0
     };
   }
 
   // function to remove the items from the cart
   removeFromCart = (product_id) => {
     axios.get("https://rent-my-apparel-backend.herokuapp.com/api/cart/admin/"+product_id)
+    const items =  this.state.items;
+    for (var item of items) {
+      if (item.product_id === product_id){
+        var total_price = this.state.total_price;
+        total_price -= item.product_price;
+        this.setState({total_price});
+        break;
+      }
+    }
     this.setState({items: this.state.items.filter(function(item) { 
       return item.product_id !== product_id
     })});
@@ -26,9 +36,19 @@ class Cart extends Component {
   async componentDidMount() {
     const { data: items }  = await axios.get("https://rent-my-apparel-backend.herokuapp.com/api/cart/admin")
     this.setState({ items });
+    var total_price = 0
+    for (var item of items) {
+      total_price += item.product_price
+    }
+    this.setState({total_price})
   }
 
   render = () => {
+    var footer = {
+      width: '100%',
+      position: 'fixed',
+      bottom: '0',
+      }
     const { items } = this.state; 
     // render the cart items on the UI
     return (
@@ -47,7 +67,7 @@ class Cart extends Component {
           <h3>{item.product_title}</h3>
           <br></br>
 
-           <h5 className="text-right">{item.product_price} CAD</h5>
+           <h5 className="text-right">{item.product_price} $</h5>
             <br></br>
 
           <p className="text-right"><span className="font-weight-bold ">Size: {item.product_size}</span></p>
@@ -65,6 +85,14 @@ class Cart extends Component {
       ))}
 
       </ul>
+      <div style={footer} className="p-3 mb-2 bg-light text-dark">
+      <Row>
+        <Col md={{span: 3, offset: 5}}><h3>Total: {this.state.total_price}$</h3></Col>
+        <Col md={{ span: 3 }}>
+          <Button variant="primary" disabled={this.state.total_price === 0? true:false} >Place Order</Button>
+        </Col>
+      </Row>
+      </div>
       </Container>
     );
   };

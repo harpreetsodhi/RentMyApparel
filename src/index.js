@@ -9,11 +9,11 @@ import Account from "./components/account";
 import Donation from "./components/donation";
 import Home from "./components/home.js";
 import "font-awesome/css/font-awesome.min.css";
-import Tab from "react-bootstrap/Tab";
-import Tabs from "react-bootstrap/Tabs";
 import Thrift from "./components/thrift.js";
 import Contact from "./components/contact.js";
 import Cart from "./components/Cart.jsx";
+import team from "./components/Team.js"
+import Faqs from "./components/Faqs.js"
 import SingleProduct from "./components/SingleProduct.jsx";
 
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
@@ -57,7 +57,9 @@ class Index extends Component {
           <Route path="/account" exact component={Account}></Route>
           <Route path="/thrift" exact component={Thrift}></Route>
           <Route path="/donation" exact component={Donation}></Route>
-          </BrowserRouter>
+          <Route path="/team" exact component={team}></Route>
+          <Route path="/faqs" exact component={Faqs}></Route>
+        </BrowserRouter>
       </div>
     );
   };

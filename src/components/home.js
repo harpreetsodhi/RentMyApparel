@@ -3,10 +3,15 @@ import React, { Component, useState, handleSelect } from "react";
 import styles from "../style.module.css";
 import { Carousel } from "react-bootstrap";
 import Footer from "../components/footer.js";
-import { Card, Button, CardColumns } from "react-bootstrap";
-import thrift from "../components/thrift.js";
-import Products from "../components/products.js";
-import Contact from "../components/contact.js";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  Button,
+  CardDeck,
+  CardColumns,
+} from "react-bootstrap";
 // Ref
 // carousel: https://react-bootstrap.github.io/components/carousel/
 export default class Home extends Component {

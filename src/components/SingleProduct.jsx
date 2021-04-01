@@ -14,7 +14,8 @@ class SingleProduct extends Component {
 	constructor (props) {
 		super(props)
 		this.state = {
-			eventDate: new Date(),
+			eventDate: addDays(new Date(), 3),
+			days: 1,
 			product: ""
 		};
 		this.product_id = props.match.params.product_id
@@ -23,26 +24,45 @@ class SingleProduct extends Component {
 	// load the api when the component loads
 	async componentDidMount() {
 		const { data: product }  = await axios.get("https://rent-my-apparel-backend.herokuapp.com/api/products/"+this.product_id)
-    	console.log(product)
-		this.setState({ product:product });
+    	this.setState({ product:product });
 	}
 
-	handleChange = (date) => {
+	handleEventDateChange = (date) => {
 		this.setState({
 			eventDate: date
 		})
 	}
 
+	handleDaysChange = (event) => {
+		this.setState({
+			days: event.target.value
+		});
+	}
+
 	onFormSubmit(e) {
 		e.preventDefault();
 		console.log(this.state.eventDate)
+		const item = {
+			user_id: "admin",
+			product_id: this.state.product.product_id,
+			product_title: this.state.product.product_title,
+			product_desc: this.state.product.product_desc,
+			product_size: this.state.product.product_size,
+			product_img: this.state.product.product_img,
+			product_color: this.state.product.product_color,
+			eventDate: this.state.eventDate.toISOString().substring(0,10),
+			product_type: this.state.product.product_type,
+			days: this.state.days
+		  };
+		  axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
+		  alert("Added to Cart!");
 	}
 
   render = () => {
 	const product = this.state.product; 
 	return (
         <Container>
-        <Form onSubmit={ this.onFormSubmit }>
+        <Form onSubmit={ this.onFormSubmit.bind(this) }>
             <Form.Row>
             <Col xs={12} md={8} sm={8}>
                 <Image className="w-100 p-3" src={product.product_img} rounded />
@@ -50,19 +70,21 @@ class SingleProduct extends Component {
             <Col xs={12} md={4} sm={4}>
                 <h1>{product.product_title}</h1>
                 <p>{product.product_desc}</p>
+				<p>Color: {product.product_color}</p>
                 <p>Size: <span style={{fontWeight: "bold"}}>{product.product_size}</span></p>
 				<Form.Group>
 					<Form.Label>Event Date: </Form.Label>
 					<br></br>
 					<DatePicker
-						selected={addDays(new Date(), 3)}
-						onChange={this.handleChange}
+						selected={this.state.eventDate}
+						onChange={(date) => this.handleEventDateChange(date)}
 						minDate = {addDays(new Date(), 3)}
+						className="form-control"
 					/>
 				</Form.Group>
                 <Form.Group controlId="exampleForm.SelectCustom">
                     <Form.Label>No of Days</Form.Label>
-                    <Form.Control as="select" custom>
+                    <Form.Control as="select" custom onChange={(event) => this.handleDaysChange(event)}>
                     <option>1</option>
                     <option>3</option>
                     <option>5</option>
