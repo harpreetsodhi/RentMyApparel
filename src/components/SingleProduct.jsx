@@ -16,6 +16,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import addDays from "date-fns/addDays";
+import { getCurrentUserID } from "../helper/functions";
 
 class SingleProduct extends Component {
   constructor(props) {
@@ -26,14 +27,12 @@ class SingleProduct extends Component {
       product: "",
     };
     this.product_id = props.match.params.product_id;
+	this.user_id = getCurrentUserID()
   }
 
   // load the api when the component loads
   async componentDidMount() {
-    const { data: product } = await axios.get(
-      "https://rent-my-apparel-backend.herokuapp.com/api/products/" +
-        this.product_id
-    );
+    const { data: product } = await axios.get("https://rent-my-apparel-backend.herokuapp.com/api/products/"+this.product_id);
     this.setState({ product: product });
   }
 
@@ -52,7 +51,7 @@ class SingleProduct extends Component {
 	onFormSubmit(e) {
 		e.preventDefault();
 		const item = {
-			user_id: "admin",
+			user_id: this.user_id,
 			product_id: this.state.product.product_id,
 			product_title: this.state.product.product_title,
 			product_desc: this.state.product.product_desc,

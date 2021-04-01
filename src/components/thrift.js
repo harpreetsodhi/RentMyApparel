@@ -8,6 +8,8 @@ import {
   CardColumns,
 } from "react-bootstrap";
 import "../css/thrift.css";
+import { getCurrentUserID } from "../helper/functions";
+
 const axios = require('axios');
 
 class Thrift extends React.Component {
@@ -18,24 +20,30 @@ class Thrift extends React.Component {
       users: [],
       searchResults: []
     };
+    this.user_id = getCurrentUserID()
   }
 
   // function to add the items to  cart
   addtoCart = (product) => {
-    const item = {
-      user_id: "admin",
-      product_id: product.product_id,
-      product_title: product.product_title,
-			product_desc: product.product_desc,
-			product_size: product.product_size,
-			product_img: product.product_img,
-      product_color: product.product_color,
-      product_type: product.product_type,
-      product_price: product.product_price,
-      days: 1
-    };
-    axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
-    alert("Added to Cart!");
+    if (this.user_id === null){
+      alert("Please login first!")
+    }
+    else{
+      const item = {
+        user_id: this.user_id,
+        product_id: product.product_id,
+        product_title: product.product_title,
+        product_desc: product.product_desc,
+        product_size: product.product_size,
+        product_img: product.product_img,
+        product_color: product.product_color,
+        product_type: product.product_type,
+        product_price: product.product_price,
+        days: 1
+      };
+      axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
+      alert("Added to Cart!");
+    }
   };
 
   //search a component//

@@ -15,6 +15,7 @@ import Cart from "./components/Cart.jsx";
 import team from "./components/Team.js";
 import Faqs from "./components/Faqs.js";
 import SingleProduct from "./components/SingleProduct.jsx";
+import { Redirect } from 'react-router'
 
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { getCurrentUserID, getCurrentUserName } from "./helper/functions";
@@ -44,6 +45,14 @@ class Index extends Component {
   }
 
   render = () => {
+    function isUserLoggedIn() {
+      if (localStorage.getItem("current_user_id") === null ){
+        return false;
+      }
+      else {
+        return true;
+      }
+    }
     return (
       <div>
         <Header userName={getUserName()}></Header>
@@ -53,12 +62,20 @@ class Index extends Component {
           <Route path="/signup" exact component={SignUp}></Route>
           <Route path="/products" exact component={Products}></Route>
           <Route path="/contact" exact component={Contact}></Route>
-          <Route path="/Cart" exact component={Cart}></Route>
-          <Route
-            path="/products/:product_id"
-            exact
-            component={SingleProduct}
-          ></Route>
+          <Route exact path="/Cart" render={(props) => (
+            isUserLoggedIn() ? (
+              <Cart {...props} />
+            ) : (
+              <Redirect to="/login"/>
+            )
+          )}/>
+          <Route exact path="/products/:product_id" render={(props) => (
+            isUserLoggedIn() ? (
+              <SingleProduct {...props} />
+            ) : (
+              <Redirect to="/login"/>
+            )
+          )}/>
           <Route path="/account" exact component={Account}></Route>
           <Route path="/thrift" exact component={Thrift}></Route>
           <Route path="/donation" exact component={Donation}></Route>

@@ -6,6 +6,7 @@ import ReactDOM from "react-dom";
 import { Container, Media, Row, Col, Button } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import addDays from "date-fns/addDays";
+import { getCurrentUserID } from "../helper/functions";
 
 class Cart extends Component {
   constructor(props) {
@@ -14,11 +15,12 @@ class Cart extends Component {
       items: [],
       total_price: 0
     };
+    this.user_id = getCurrentUserID()
   }
 
   // function to remove the items from the cart
   removeFromCart = (product_id) => {
-    axios.get("https://rent-my-apparel-backend.herokuapp.com/api/cart/admin/"+product_id)
+    axios.get("https://rent-my-apparel-backend.herokuapp.com/api/cart/"+this.user_id+"/"+product_id)
     const items =  this.state.items;
     for (var item of items) {
       if (item.product_id === product_id){
@@ -35,7 +37,7 @@ class Cart extends Component {
 
   // load the api when the component loads
   async componentDidMount() {
-    const { data: items }  = await axios.get("https://rent-my-apparel-backend.herokuapp.com/api/cart/admin")
+    const { data: items }  = await axios.get("https://rent-my-apparel-backend.herokuapp.com/api/cart/"+this.user_id)
     this.setState({ items });
     var total_price = 0
     for (var item of items) {
