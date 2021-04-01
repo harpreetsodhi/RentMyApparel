@@ -14,7 +14,8 @@ class SingleProduct extends Component {
 	constructor (props) {
 		super(props)
 		this.state = {
-			eventDate: new Date(),
+			eventDate: addDays(new Date(), 3),
+			days: 1,
 			product: ""
 		};
 		this.product_id = props.match.params.product_id
@@ -27,15 +28,28 @@ class SingleProduct extends Component {
 		this.setState({ product:product });
 	}
 
-	handleChange = (date) => {
+	handleEventDateChange = (date) => {
 		this.setState({
 			eventDate: date
 		})
 	}
 
+	handleDaysChange = (event) => {
+		this.setState({
+			days: event.target.value
+		});
+	}
+
 	onFormSubmit(e) {
 		e.preventDefault();
-		console.log(this.state.eventDate)
+		const item = {
+			user_id: "admin",
+			product_id: this.product_id,
+			eventDate: this.state.eventDate,
+			days: this.state.days
+		  };
+		  axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
+		  alert("Added to Cart!");
 	}
 
   render = () => {
@@ -55,14 +69,15 @@ class SingleProduct extends Component {
 					<Form.Label>Event Date: </Form.Label>
 					<br></br>
 					<DatePicker
-						selected={addDays(new Date(), 3)}
-						onChange={this.handleChange}
+						selected={this.state.eventDate}
+						onChange={(date) => this.handleEventDateChange(date)}
 						minDate = {addDays(new Date(), 3)}
+						className="form-control"
 					/>
 				</Form.Group>
                 <Form.Group controlId="exampleForm.SelectCustom">
                     <Form.Label>No of Days</Form.Label>
-                    <Form.Control as="select" custom>
+                    <Form.Control as="select" custom onChange={(event) => this.handleDaysChange(event)}>
                     <option>1</option>
                     <option>3</option>
                     <option>5</option>
