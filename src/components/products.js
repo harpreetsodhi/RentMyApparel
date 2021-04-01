@@ -11,7 +11,7 @@ import {
   ListGroupItem,
   CardColumns,
 } from "react-bootstrap";
-import Footer from "./footer";
+import "../css/product.css";
 
 const axios = require("axios");
 export default class Products extends Component {
@@ -38,12 +38,7 @@ export default class Products extends Component {
     return (
       <form>
         <div className="card-deck">
-          <CardColumns
-            className="m-5"
-            style={{
-              columnCount: 4,
-            }}
-          >
+          <CardColumns className="m-5">
             {this.state.products.map((product) => {
               return (
                 <Card

@@ -1,18 +1,19 @@
-/*Author - Shivani Sharma*/
+/* Author - Shivani Sharma */
 
-.text-left{
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
+/* 
+.text-left {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
 }
-.text-center{
-    align-items: flex-end;
-    align-self: auto;
+.text-center {
+  align-items: flex-end;
+  align-self: auto;
 }
 
-.card-deck{
-    width: auto;
-    flex: 0 1 300px;
+.card-deck {
+  width: auto;
+  flex: 0 1 300px;
   margin: 12px;
   overflow: hidden;
   padding: 16px;
@@ -21,17 +22,17 @@
   min-width: 300px;
 }
 
-.card-img-top{
-    width: 30%;
+.card-img-top {
+  width: 30%;
   float: left;
-    height: 30vw;
-    object-fit: cover;
-    height: 100px;
+  height: 30vw;
+  object-fit: cover;
+  height: 100px;
 }
 
-.description{
-    color: #757575;
+.description {
+  color: #757575;
   font-size: 14px;
-  margin-bottom:10px;
+  margin-bottom: 10px;
   text-align: center;
-}
+} */

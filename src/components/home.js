@@ -1,4 +1,4 @@
-//Author - Shivani Sharma
+//Author - Shivani Sharma, Neelkanth Dabhi
 import React, { Component, useState, handleSelect } from "react";
 import styles from "../style.module.css";
 import { Carousel } from "react-bootstrap";
