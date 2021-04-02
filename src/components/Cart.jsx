@@ -81,24 +81,6 @@ class Cart extends Component {
       position: 'fixed',
       bottom: '0',
       }
-    // async handleToken() {
-    //   const response = await axios.post("https://rent-my-apparel-backend.herokuapp.com/api/checkout/", {token, items});
-    //   const {status} = response.data
-    //   console.log(response.data);
-    //   if(status === 'success'){
-    //     toast('Order has been placed! Please Check your Email!', 
-    //     {type: 'success'});
-    //     axios.get("https://rent-my-apparel-backend.herokuapp.com/api/emptyCart/"+this.user_id);
-    //     this.setState = {
-    //       items: [],
-    //       total_price: 0
-    //     };
-    //     console.log(this.state)
-    //   } else {
-    //     toast('Something went wrong',
-    //     {type: "error"});
-    //   }
-    // }
     return (
       <div>
         <div>
