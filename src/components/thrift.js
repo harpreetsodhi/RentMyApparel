@@ -28,7 +28,7 @@ class Thrift extends React.Component {
   // function to add the items to  cart
   addtoCart = (product) => {
     if (this.user_id === null){
-      this.dialog.showAlert('"Please login first!')
+      this.dialog.showAlert('Please login first!')
     }
     else{
       const item = {
