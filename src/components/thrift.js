@@ -6,10 +6,11 @@ import {
   Card,
   Button,
   CardColumns,
-  Row
+  Row, ListGroup, ListGroupItem
 } from "react-bootstrap";
 import "../css/thrift.css";
 import { getCurrentUserID } from "../helper/functions";
+import {Link} from "react-router-dom";
 
 const axios = require('axios');
 
@@ -112,7 +113,7 @@ class Thrift extends React.Component {
                       </Card.Text>
                       <Card.Text className="description">
                           {product.product_desc}
-                      </Card.Text>  
+                      </Card.Text>
                       <Card.Footer>
                       <Card.Subtitle className="text-center">Price: ${product.product_price}</Card.Subtitle>
                       </Card.Footer>
@@ -139,57 +140,50 @@ class Thrift extends React.Component {
           </Row>
         </div>
 
-        <hr className="mb-5 mt-5" />
-        <div className="card-dick">
-          <Row>
-            {
-              this.state.products.map(product => {
-                return(
-                <div className="col-md-4 mb-3">
-                  <Card key={product.product_id} value={product.product_id} className="h-100">
-                    <Card.Body>
-                      <Card.Img
-                        className="card-img-top"
+        <div className="card-deck">
+          <CardColumns className="mt-0 mr-5 ml-5 mb-5">
+            {this.state.products.map((product) => {
+              return (
+                  <Card
+                      style={{ max: "18rem" }}
+                      key={product.product_id}
+                      value={product.product_id}
+                  >
+                    <Card.Img
+                        className="p-3"
                         variant="top"
                         src={product.product_img}
-                      />
-                      <Card.Text className="text-center">
-                        <a href="#">
-                        {product.product_title}
-                        </a>
-                      </Card.Text>
-                      <Card.Text className="text-center">
-                        Product Color - {product.product_color}
-                      </Card.Text>
-                      <Card.Text className="description">
-                          {product.product_desc}
-                      </Card.Text>  
-                      <Card.Footer>
-                      <Card.Subtitle className="text-center">Price: ${product.product_price}</Card.Subtitle>
-                      </Card.Footer>
-                      <Card.Footer>
-                      <Card.Subtitle className="text-center">Size: {product.product_size}
-                      </Card.Subtitle>
-                    </Card.Footer>
-                    
-                    <Card.Footer>
-                      <div className="col text-center">
-                        <Button
+                    />
+
+                    <Card.Body>
+                      <Card.Title> {product.product_title}</Card.Title>
+                      <Card.Text>{product.product_desc}</Card.Text>
+                    </Card.Body>
+                    <ListGroup className="list-group-flush">
+                      <ListGroupItem>
+                        <strong>Colors: </strong>
+                        {product.product_color}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        <strong>Size: </strong>
+                        {product.product_size}
+                      </ListGroupItem>
+                      <ListGroupItem>
+                        <strong>Price: </strong>${product.product_price}
+                      </ListGroupItem>
+                    </ListGroup>
+                    <Card.Body>
+                      <Button
                           onClick={() => this.addtoCart(product)}
-                          variant="btn btn-outline-success"
-                        >
-                          Add to Cart
-                        </Button>
-                      </div>
-                      <br />
-                      <div className="col text-center"></div>
-                    </Card.Footer>
-                  </Card.Body>
-                </Card>
-                </div>
+                          variant="btn btn-primary"
+                      >
+                        Add to Cart
+                      </Button>
+                    </Card.Body>
+                  </Card>
               );
             })}
-          </Row>
+          </CardColumns>
         </div>
       </form>
     );
