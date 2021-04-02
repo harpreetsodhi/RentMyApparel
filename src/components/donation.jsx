@@ -57,8 +57,11 @@ class Donation extends Component {
           if (res.data.success) {
             this.setState({
               alertColor: "success",
-              alertMessage: "Thank you for choosing to donate! We will contact you shortly via email."
+              alertMessage: "Thank you for choosing to donate! Redirecting to Homepage ..."
+
             });
+            setTimeout(function(){
+              window.location.href = '/';}, 3000);
           }
           else {
             this.setState({
