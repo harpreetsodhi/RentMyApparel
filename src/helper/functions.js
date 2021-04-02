@@ -22,3 +22,11 @@ export function checkUserAccountCompleteness() {
     window.location.replace("/account");
   }
 }
+
+export function isUserAccountComplete() {
+  var check = getUserAccountCompleteness();
+  if (check == null || !check) {
+    return false;
+  }
+  return true;
+}
