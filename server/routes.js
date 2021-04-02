@@ -184,6 +184,7 @@ router.post(
 );
 
 // @Author - Rajveen Singh
+// Api to submit donation request
 router.post("/donate", (req, res, next) => {
   const donation = new donationModel({
     name: req.body.name,
@@ -212,6 +213,58 @@ const contactEmail = {
     pass: "Shivani1998!",
   },
 };
+
+// @Author - Rajveen Singh
+// Api to get user account information
+router.get("/account", cors(), async (req, res, next) => {
+  try {
+    console.log(req);
+    userModel
+      .findOne({ user_id: req.query.user_id })
+      .exec()
+      .then((result) => {
+        console.log(result);
+        result.user_password = undefined;
+        res.status(200).json({ success: true, result });
+      })
+      .catch((err) => next(err));
+  } catch (error) {
+    console.log(error.message);
+    res.status(404).json({
+      message: error.message,
+    });
+  }
+});
+
+// @Author - Rajveen Singh
+// Api to post user account information
+router.post("/account", (req, res, next) => {
+  const userInfo = {
+    // user_id: req.body.user_id,
+    user_firstName: req.body.firstName,
+    user_lastName: req.body.lastName,
+    user_address: req.body.address,
+    user_address2: req.body.address2,
+    user_city: req.body.city,
+    user_province: req.body.province,
+    user_postalCode: req.body.postalCode,
+    isComplete: req.body.isComplete
+  };
+
+  userModel.findOneAndUpdate(
+    {user_id: req.body.user_id},
+    userInfo,
+    {new: true},
+    (err, doc) => {
+      if(err) next(err);
+      doc.user_password = undefined;
+      return res.json({
+        success: true,
+        document: doc,
+      });
+    }
+  );
+});
 
 var transporter = nodemailer.createTransport(contactEmail);
 
