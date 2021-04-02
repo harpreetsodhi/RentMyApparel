@@ -122,7 +122,12 @@ class Thrift extends React.Component {
                       </Card.Footer>
                       <Card.Footer>
                         <div className="col text-center">
-                        <Button variant="btn btn-outline-success" >Add to Cart</Button>
+                        <Button
+                          onClick={() => this.addtoCart(product)}
+                          variant="btn btn-primary"
+                      >
+                        Add to Cart
+                      </Button>
                         </div>
                         <br />
                         <div className="col text-center">
