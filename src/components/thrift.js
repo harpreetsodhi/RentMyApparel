@@ -10,6 +10,7 @@ import {
 } from "react-bootstrap";
 import "../css/thrift.css";
 import { getCurrentUserID, isUserAccountComplete, checkUserLogin } from "../helper/functions";
+import Dialog from 'react-bootstrap-dialog'
 
 const axios = require('axios');
 
@@ -28,7 +29,7 @@ class Thrift extends React.Component {
   // function to add the items to  cart
   addtoCart = (product) => {
     if (this.user_id === null){
-      alert("Please login first!")
+      this.dialog.showAlert('"Please login first!')
     }
     else{
       const item = {
@@ -44,7 +45,7 @@ class Thrift extends React.Component {
         days: 1
       };
       axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
-      alert("Added to Cart!");
+      this.dialog.showAlert('Added to Cart!')
     }
   };
 
@@ -70,7 +71,7 @@ class Thrift extends React.Component {
   render() {
     return (
       <form>
-
+      <Dialog ref={(component) => { this.dialog = component }} />
         <nav class="navbar navbar-light justify-content-between">
           <a class="navbar-brand">
             <div className="row ">

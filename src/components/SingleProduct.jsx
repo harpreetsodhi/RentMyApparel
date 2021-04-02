@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ReactDOM from "react-dom";
+import Dialog from 'react-bootstrap-dialog'
 import {
   Container,
   Form,
@@ -24,10 +25,10 @@ class SingleProduct extends Component {
     this.state = {
       eventDate: addDays(new Date(), 3),
       days: 1,
-      product: "",
+      product: ""
     };
     this.product_id = props.match.params.product_id;
-	this.user_id = getCurrentUserID()
+	  this.user_id = getCurrentUserID()
   }
 
   // load the api when the component loads
@@ -64,13 +65,14 @@ class SingleProduct extends Component {
 			days: this.state.days
 		};
 		axios.post("https://rent-my-apparel-backend.herokuapp.com/api/cart/", item);
-		alert("Added to Cart!");
+    this.dialog.showAlert('Added to Cart!')
 	}
 
   render = () => {
     const product = this.state.product;
     return (
       <Container>
+        <Dialog ref={(component) => { this.dialog = component }} />
         <Form onSubmit={this.onFormSubmit.bind(this)}>
           <Form.Row>
             <Col xs={12} md={8} sm={8}>
