@@ -64,7 +64,7 @@ class Cart extends Component {
       const {status} = response.data
       console.log(response.data);
       if(status === 'success'){
-        toast('Order has been placed!', 
+        toast('Thankyou for shopping with us. Your order has been placed!', 
         {type: 'success'});
         axios.get("https://rent-my-apparel-backend.herokuapp.com/api/emptyCart/"+this.user_id);
         this.setState = {
