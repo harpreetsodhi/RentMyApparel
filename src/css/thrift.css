@@ -11,16 +11,6 @@
   align-self: auto;
 }
 
-.card-deck {
-  width: auto;
-  flex: 0 1 300px;
-  margin: 12px;
-  overflow: hidden;
-  padding: 16px;
-  border-radius: 5px;
-  flex-wrap: wrap;
-  min-width: 300px;
-}
 
 .card-img-top {
   width: 30%;
