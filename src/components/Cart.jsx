@@ -5,7 +5,12 @@ import axios from 'axios';
 import ReactDOM from "react-dom";
 import { Container, Media, Row, Col, Button } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import StripeCheckout from "react-stripe-checkout";
+import { toast } from "react-toastify";
 
+import 'react-toastify/dist/ReactToastify.css';
+
+toast.configure();
 class Cart extends Component {
   constructor(props) {
     super(props);
@@ -51,6 +56,20 @@ class Cart extends Component {
       }
     const { items } = this.state; 
     // render the cart items on the UI
+
+    async function handleToken(token){
+      // console.log({token, address});
+      const response = await axios.post("http://localhost:5000/api/checkout", {token, items});
+      const {status} = response.data
+      console.log(response.data);
+      if(status === 'success'){
+        toast('Success! Check your Email!', 
+        {type: 'success'})
+      } else {
+        toast('Something went wrong',
+        {type: "error"});
+      }
+    }
     return (
         <Container>
             <br></br>
@@ -89,7 +108,13 @@ class Cart extends Component {
       <Row>
         <Col md={{span: 3, offset: 5}}><h3>Total: {this.state.total_price}$</h3></Col>
         <Col md={{ span: 3 }}>
-          <Button variant="primary" disabled={this.state.total_price === 0? true:false} >Place Order</Button>
+          <StripeCheckout stripeKey="pk_test_51IbYPpALkSJauFTTXG0pnzGaV7AsybmLz1AljGAbtIktsRRIwa1hqEyuSaWfhQqiXxLaLfqWBfJF18fDbZmWvtCF00Y2oxvsKU"
+          token={handleToken}
+          billingAddress
+          shippingAddress
+          amount={items.product_price * 100}
+          name={items.product_title}/>
+          {/* <Button variant="primary" disabled={this.state.total_price === 0? true:false} >Place Order</Button> */}
         </Col>
       </Row>
       </div>

@@ -6,6 +6,7 @@ import {
   Card,
   Button,
   CardColumns,
+  Row
 } from "react-bootstrap";
 import "../css/thrift.css";
 const axios = require('axios');
@@ -68,13 +69,14 @@ class Thrift extends React.Component {
           </form>
         </nav>
 
-        <div className="card-deck">
-          <h3>Search Results:</h3>
-          <CardColumns>
+        <div className="card-dick">
+          <h4>Search Results:</h4>
+          <Row>
             {
               this.state.searchResults.map(product => {
                 return(
-                  <Card>
+                <div className="col-md-4">
+                  <Card className="h-100">
                     <Card.Body>
                       <Card.Img
                         class="card-img-top"
@@ -109,23 +111,25 @@ class Thrift extends React.Component {
                       </Card.Footer>
                     </Card.Body>
                   </Card>
+                </div>
 
                 );
               })
             }
             
-          </CardColumns>
+          </Row>
         </div>
         <hr className="mb-5 mt-5" />
-        <div className="card-deck">
-          <CardColumns>
+        <div className="card-dick">
+          <Row>
             {
               this.state.products.map(product => {
                 return(
-                  <Card key={product.product_id} value={product.product_id}>
+                <div className="col-md-4 mb-3">
+                  <Card key={product.product_id} value={product.product_id} className="h-100">
                     <Card.Body>
                       <Card.Img
-                        class="card-img-top"
+                        className="card-img-top"
                         variant="top"
                         src={product.product_img}
                       />
@@ -147,11 +151,7 @@ class Thrift extends React.Component {
                       <Card.Subtitle className="text-center">Size: {product.product_size}
                       </Card.Subtitle>
                     </Card.Footer>
-                    <Card.Footer>
-                      <Card.Subtitle className="text-center">
-                        Size: {product.product_size}
-                      </Card.Subtitle>
-                    </Card.Footer>
+                    
                     <Card.Footer>
                       <div className="col text-center">
                         <Button
@@ -166,9 +166,10 @@ class Thrift extends React.Component {
                     </Card.Footer>
                   </Card.Body>
                 </Card>
+                </div>
               );
             })}
-          </CardColumns>
+          </Row>
         </div>
       </form>
     );
