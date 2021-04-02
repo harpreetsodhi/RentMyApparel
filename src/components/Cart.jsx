@@ -60,7 +60,7 @@ class Cart extends Component {
     const { items } = this.state; 
 
     async function handleToken(token){
-      const response = await axios.post("https://rent-my-apparel-backend.herokuapp.com/api/checkout", {token, items});
+      const response = await axios.post("https://rent-my-apparel-backend.herokuapp.com/api/checkout/", {token, items});
       const {status} = response.data
       console.log(response.data);
       if(status === 'success'){
