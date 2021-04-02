@@ -50,7 +50,7 @@ const Login = () => {
               "user_account_completeness",
               response["data"]["isComplete"]
             );
-            window.location.replace("/");
+            window.location.replace("/account");
           }
         })
         .catch(function (error) {
