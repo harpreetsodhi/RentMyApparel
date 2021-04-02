@@ -4,7 +4,13 @@ import { Accordion, Card, Button } from 'react-bootstrap'
 export default class Faqs extends Component{
     render(){
         return(
-        <div className="App">  
+        <div className="App">
+            <div className="row ">
+                <div className="col-lg-5 mt-3 mr-5 ml-5 mb-5 " >
+                    <h2 className="display-4 font-weight-light">Frequently Asked Questions</h2>
+
+                </div>
+            </div>
             <Accordion>
                 <Card>
                     <Card.Header>
