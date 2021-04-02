@@ -69,16 +69,26 @@ class Thrift extends React.Component {
   render() {
     return (
       <form>
+
         <nav class="navbar navbar-light justify-content-between">
-          <a class="navbar-brand"> 
-          <strong> Thrift Store</strong>  
+          <a class="navbar-brand">
+            <div className="row ">
+              <div className="col-lg-5 mt-0 mr-5 ml-5 mb-3 "style={{
+                fontSize: "medium"
+              }} >
+                <h2 className="display-4 font-weight-light" >Thrift Store</h2>
+                <p className="font-italic text-muted" >
+                  Over 700+ Wedding & Party Rentals, Clothing for every event, Men's and Women's clothing to choose from!
+                </p>
+              </div>
+            </div>
           </a>
           <form class="form-inline">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={this.searchProduct} />
           </form>
         </nav>
 
-        <div className="card-dick">
+        <div className="card-deck">
           <h4>Search Results:</h4>
           <Row>
             {
@@ -128,6 +138,7 @@ class Thrift extends React.Component {
             
           </Row>
         </div>
+
         <hr className="mb-5 mt-5" />
         <div className="card-dick">
           <Row>
