@@ -3,7 +3,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Nav, Form, Button, Image, Alert } from "react-bootstrap";
 import "../css/account.css";
-import { checkUserLogin, getCurrentUserID } from "../helper/functions";
+import { checkUserAccountCompleteness, checkUserLogin, getCurrentUserID } from "../helper/functions";
 const axios = require('axios');
 
 class Account extends Component {
@@ -32,13 +32,14 @@ class Account extends Component {
       },
       alertColor: undefined,
       alertMessage: undefined,
+      disableSubmit: true
     };
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5000/api/account", { params: { user_id: getCurrentUserID() } })
+    axios.get("https://rent-my-apparel-backend.herokuapp.com/api/account", { params: { user_id: getCurrentUserID() } })
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         this.setState({
           firstName: res.data.result.user_firstName,
           lastName: res.data.result.user_lastName,
@@ -125,13 +126,7 @@ class Account extends Component {
         break;
     }
 
-    if (enableButton === true) {
-      document.getElementById("formGridSubmit").disabled = false;
-    }
-    else {
-      document.getElementById("formGridSubmit").disabled = true;
-    }
-    // console.log({id, value});
+    this.setState({ disableSubmit: !enableButton });
   }
 
   submitForm = (event) => {
@@ -159,13 +154,25 @@ class Account extends Component {
       };
       console.log(JSON.stringify(dataToSend));
 
-      const data = axios.post('http://localhost:5000/api/account', dataToSend)
+      const data = axios.post('https://rent-my-apparel-backend.herokuapp.com/api/account', dataToSend)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           if (res.data.success) {
+            localStorage.setItem(
+              "user_account_completeness",
+              true
+            );
             this.setState({
+              firstName: firstName,
+              lastName: lastName,
+              address: address,
+              address2: address2,
+              city: city,
+              province: province,
+              postalCode: postalCode,
               alertColor: "success",
-              alertMessage: "Changes saved successfully!"
+              alertMessage: "Changes saved successfully!",
+              disableSubmit: true
             });
           }
           else {
@@ -262,7 +269,7 @@ class Account extends Component {
                 </Form.Row>
               </Col>
               <Button variant="dark" type="button" onClick={this.cancelSubmit} style={{ marginRight: "4%" }}>Exit</Button>
-              <Button variant="dark" type="submit" onClick={this.submitForm} id="formGridSubmit" disabled>Submit</Button>
+              <Button variant="dark" type="submit" onClick={this.submitForm} id="formGridSubmit" className={this.state.disableSubmit && "disable-button"}>Submit</Button>
             </Row>
           </Form>
         </Container>

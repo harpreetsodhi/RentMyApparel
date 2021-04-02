@@ -12,3 +12,8 @@
     padding: 30px;
     border-radius: 10px;
   }
+
+  .disable-button {
+    pointer-events: none;
+    opacity: 0.65;
+  }
