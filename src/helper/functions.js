@@ -11,3 +11,7 @@ export function checkUserLogin() {
     window.location.replace("/login");
   }
 }
+
+export function checkUserAccountCompleteness() {
+  return localStorage.getItem("user_account_completeness");
+}
