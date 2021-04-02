@@ -3,13 +3,14 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Nav, Form, Button, Image, Alert } from "react-bootstrap";
 import "../css/account.css";
-import { getCurrentUserID } from "../helper/functions";
+import { checkUserLogin, getCurrentUserID } from "../helper/functions";
 const axios = require('axios');
 
 class Account extends Component {
 
   constructor(props) {
     super(props);
+    checkUserLogin();
     this.state = {
       firstName: '',
       lastName: undefined,
@@ -69,7 +70,71 @@ class Account extends Component {
       });
   }
 
+  cancelSubmit = () => {
+    window.location.replace("/");
+  }
+
   handleChange = (event) => {
+    const { id, value } = event.target;
+    var enableButton = false;
+
+    switch (id) {
+      case 'formGridFirstName':
+        if (value.trim() !== this.state.firstName) {
+          enableButton = true;
+        }
+        break;
+
+      case 'formGridLastName':
+        if (value.trim() !== this.state.lastName) {
+          enableButton = true;
+        }
+        break;
+
+      case 'formGridAddress1':
+        if (value.trim() !== this.state.address) {
+          enableButton = true;
+        }
+        break;
+
+      case 'formGridAddress2':
+        if (value.trim() !== this.state.address2) {
+          enableButton = true;
+        }
+        break;
+
+      case 'formGridCity':
+        if (value.trim() !== this.state.city) {
+          enableButton = true;
+        }
+        break;
+
+      case 'formGridProvince':
+        if (value.trim() !== this.state.province) {
+          enableButton = true;
+        }
+        break;
+
+      case 'formGridPostal':
+        if (value.trim() !== this.state.postalCode) {
+          enableButton = true;
+        }
+        break;
+
+      default:
+        break;
+    }
+
+    if (enableButton === true) {
+      document.getElementById("formGridSubmit").disabled = false;
+    }
+    else {
+      document.getElementById("formGridSubmit").disabled = true;
+    }
+    // console.log({id, value});
+  }
+
+  submitForm = (event) => {
     var firstName = document.getElementById("formGridFirstName").value.trim();
     var lastName = document.getElementById("formGridLastName").value.trim();
     var email = document.getElementById("formGridEmail").value.trim();
@@ -100,7 +165,7 @@ class Account extends Component {
           if (res.data.success) {
             this.setState({
               alertColor: "success",
-              alertMessage: "Changes saved"
+              alertMessage: "Changes saved successfully!"
             });
           }
           else {
@@ -140,12 +205,12 @@ class Account extends Component {
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridFirstName" className="text-left">
                     <Form.Label><strong>First Name</strong></Form.Label>
-                    <Form.Control type="text" defaultValue={this.state.firstName} placeholder="Enter First Name" required />
+                    <Form.Control type="text" defaultValue={this.state.firstName} onChange={this.handleChange} placeholder="Enter First Name" required />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridLastName" className="text-left">
                     <Form.Label><strong>Last Name</strong></Form.Label>
-                    <Form.Control type="text" defaultValue={this.state.lastName} placeholder="Enter Last Name" required />
+                    <Form.Control type="text" defaultValue={this.state.lastName} onChange={this.handleChange} placeholder="Enter Last Name" required />
                   </Form.Group>
                 </Form.Row>
 
@@ -156,23 +221,23 @@ class Account extends Component {
 
                 <Form.Group controlId="formGridAddress1" className="text-left">
                   <Form.Label><strong>Address</strong></Form.Label>
-                  <Form.Control defaultValue={this.state.address} placeholder="1234 Main St" required />
+                  <Form.Control defaultValue={this.state.address} onChange={this.handleChange} placeholder="1234 Main St" required />
                 </Form.Group>
 
                 <Form.Group controlId="formGridAddress2" className="text-left">
                   <Form.Label><strong>Address 2</strong></Form.Label>
-                  <Form.Control defaultValue={this.state.address2} placeholder="Apartment, studio, or floor" />
+                  <Form.Control defaultValue={this.state.address2} onChange={this.handleChange} placeholder="Apartment, studio, or floor" />
                 </Form.Group>
 
                 <Form.Row>
                   <Form.Group as={Col} controlId="formGridCity" className="text-left">
                     <Form.Label><strong>City</strong></Form.Label>
-                    <Form.Control defaultValue={this.state.city} required />
+                    <Form.Control defaultValue={this.state.city} onChange={this.handleChange} required />
                   </Form.Group>
 
                   <Form.Group as={Col} controlId="formGridProvince" className="text-left">
                     <Form.Label><strong>Province/Territory</strong></Form.Label>
-                    <Form.Control as="select" defaultValue={{ value: this.state.province, label: 'Nova Scotia (NS)' }} required>
+                    <Form.Control as="select" onChange={this.handleChange} required> {/*defaultValue={{ value: this.state.province, label: 'Nova Scotia (NS)' }}>*/}
                       <option value="">Choose...</option>
                       <option value="on">Ontario (ON)</option>
                       <option value="qc">Quebec (QC)</option>
@@ -192,11 +257,12 @@ class Account extends Component {
 
                   <Form.Group as={Col} controlId="formGridPostal" className="text-left">
                     <Form.Label><strong>Postal Code</strong></Form.Label>
-                    <Form.Control defaultValue={this.state.postalCode} required />
+                    <Form.Control defaultValue={this.state.postalCode} onChange={this.handleChange} required />
                   </Form.Group>
                 </Form.Row>
               </Col>
-              <Button variant="dark" type="submit" onClick={this.handleChange}>Submit</Button>
+              <Button variant="dark" type="button" onClick={this.cancelSubmit} style={{ marginRight: "4%" }}>Exit</Button>
+              <Button variant="dark" type="submit" onClick={this.submitForm} id="formGridSubmit" disabled>Submit</Button>
             </Row>
           </Form>
         </Container>
