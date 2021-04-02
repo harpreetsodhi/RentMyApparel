@@ -1,7 +1,7 @@
 import React, { Component, useState, browserHistory } from "react";
 import axios from "axios";
 import Alert from "react-bootstrap/Alert";
-import {  isUserAccountComplete,checkUserAccountCompleteness  } from "../helper/functions";
+import {  isUserAccountComplete, checkUserAccountCompleteness  } from "../helper/functions";
 
 
 // AUTHOR : NEELKANTH DABHI
