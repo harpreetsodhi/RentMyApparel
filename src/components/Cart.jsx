@@ -4,8 +4,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import ReactDOM from "react-dom";
 import { Container, Card, Media, Row, Col, Button, ListGroupItem, ListGroup } from "react-bootstrap";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import addDays from "date-fns/addDays";
+import { Redirect } from "react-router-dom";
 import { getCurrentUserID } from "../helper/functions";
 import StripeCheckout from "react-stripe-checkout";
 import { toast } from "react-toastify";
@@ -18,7 +17,8 @@ class Cart extends Component {
     super(props);
     this.state = {
       items: [],
-      total_price: 0
+      total_price: 0,
+      orderPlaced: false
     };
     this.user_id = getCurrentUserID()
   }
@@ -49,6 +49,30 @@ class Cart extends Component {
       total_price += item.product_price*item.days
     }
     this.setState({total_price})
+    this.handleToken = this.handleToken.bind(this)
+  }
+
+  async handleToken(token) {
+    var items = this.state.items
+    const response = await axios.post("https://rent-my-apparel-backend.herokuapp.com/api/checkout/", {token, items});
+    const {status} = response.data
+    console.log(response.data);
+    if(status === 'success'){
+      toast('Order has been placed! Please Check your Email! Redirecting to HomePage...', 
+      {type: 'success'});
+      axios.get("https://rent-my-apparel-backend.herokuapp.com/api/emptyCart/"+this.user_id);
+    } else {
+      toast('Something went wrong',
+      {type: "error"});
+    }
+    this.setState({ 
+      items: [],
+      total_price: 0,
+     })
+     setTimeout(() => {
+       toast.dismiss();
+       this.setState({ orderPlaced: true })
+      }, 5000)
   }
 
   render = () => {
@@ -57,31 +81,16 @@ class Cart extends Component {
       position: 'fixed',
       bottom: '0',
       }
-    const { items } = this.state; 
-
-    async function handleToken(token){
-      const response = await axios.post("https://rent-my-apparel-backend.herokuapp.com/api/checkout/", {token, items});
-      const {status} = response.data
-      console.log(response.data);
-      if(status === 'success'){
-        toast('Order has been placed! Please Check your Email!', 
-        {type: 'success'});
-        axios.get("https://rent-my-apparel-backend.herokuapp.com/api/emptyCart/"+this.user_id);
-        this.setState = {
-          items: [],
-          total_price: 0
-        };
-      } else {
-        toast('Something went wrong',
-        {type: "error"});
-      }
-    }
     return (
       <div>
         <div>
         <Container>
+        {
+          this.state.orderPlaced === true &&  
+          <Redirect to="/"/>
+        }
         <ul className="list-unstyled">
-          {items.map((item) => (
+          {this.state.items.map((item) => (
             <Card className="m-3">
               <Card.Body>
               <Card.Text>
@@ -163,11 +172,11 @@ class Cart extends Component {
         <Col md={{span: 3, offset: 5}}><h3>Total: {this.state.total_price}$</h3></Col>
         <Col md={{ span: 3 }}>
           <StripeCheckout disabled={this.state.total_price === 0? true:false} stripeKey="pk_test_51IbYPpALkSJauFTTXG0pnzGaV7AsybmLz1AljGAbtIktsRRIwa1hqEyuSaWfhQqiXxLaLfqWBfJF18fDbZmWvtCF00Y2oxvsKU"
-          token={handleToken}
+          token={(token) => this.handleToken(token)}
           billingAddress
           shippingAddress
-          amount={items.product_price * 100}
-          name={items.product_title}/>
+          amount={this.state.items.product_price * 100}
+          name={this.state.items.product_title}/>
         </Col>
       </Row>
       </div>
