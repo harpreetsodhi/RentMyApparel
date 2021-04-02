@@ -87,26 +87,29 @@ export default class Home extends Component {
               columnCount: "2",
             }}
           >
-            <Card className="">
-              <Card.Img
-                style={{
-                  height: "300px",
-                  objectFit: "cover",
-                }}
-                variant="top"
-                src="https://images.unsplash.com/photo-1571867424485-369464ed33cc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80/100px160"
-              />
+            
+            <Card>
               <Card.Body>
                 <Card.Subtitle>
                   <h1>Rental Store</h1>
                 </Card.Subtitle>
                 <Card.Text>
-                  <h5>One Stop for all the apparels at an affordable price.</h5>
+                  <h5>
+                  One Stop for all the apparels at an affordable price.
+                  </h5>
                 </Card.Text>
                 <Button variant="dark" href="/products">
                   Visit Rental Store
                 </Button>
               </Card.Body>
+              <Card.Img
+                style={{
+                  height: "300px",
+                  objectFit: "cover",
+                }}
+                variant="bottom"
+                src="https://images.unsplash.com/photo-1571867424485-369464ed33cc?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80/100px160"
+              />
             </Card>
 
             <Card>
@@ -116,8 +119,7 @@ export default class Home extends Component {
                 </Card.Subtitle>
                 <Card.Text>
                   <h5>
-                    Give yourself a never-fading fashion and feel great with
-                    fantastic costumes.
+                    Give yourself a never-fading fashion.
                   </h5>
                 </Card.Text>
                 <Button variant="dark" href="/thrift">

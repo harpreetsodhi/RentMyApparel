@@ -1,6 +1,6 @@
-/* Author - Shivani Sharma */
+/* Author - Shivani Sharma */ */
 
-/* 
+
 .text-left {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -11,21 +11,11 @@
   align-self: auto;
 }
 
-.card-deck {
-  width: auto;
-  flex: 0 1 300px;
-  margin: 12px;
-  overflow: hidden;
-  padding: 16px;
-  border-radius: 5px;
-  flex-wrap: wrap;
-  min-width: 300px;
-}
 
 .card-img-top {
   width: 30%;
   float: left;
-  height: 30vw;
+  height: 40vw;
   object-fit: cover;
   height: 100px;
 }
@@ -35,4 +25,4 @@
   font-size: 14px;
   margin-bottom: 10px;
   text-align: center;
-} */
+}
