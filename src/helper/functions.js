@@ -25,7 +25,7 @@ export function checkUserAccountCompleteness() {
 
 export function isUserAccountComplete() {
   var check = getUserAccountCompleteness();
-  if (check == null || !check) {
+  if (check == "false" || check == "null") {
     return false;
   }
   return true;
