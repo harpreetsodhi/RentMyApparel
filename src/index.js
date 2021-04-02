@@ -46,7 +46,7 @@ class Index extends Component {
 
   render = () => {
     function isUserLoggedIn() {
-      if (localStorage.getItem("current_user_id") === null ){
+      if (localStorage.getItem("current_user_id") == "null" ){
         return false;
       }
       else {
