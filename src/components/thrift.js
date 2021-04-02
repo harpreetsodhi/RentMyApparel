@@ -10,7 +10,6 @@ import {
 } from "react-bootstrap";
 import "../css/thrift.css";
 import { getCurrentUserID } from "../helper/functions";
-import {Link} from "react-router-dom";
 
 const axios = require('axios');
 
@@ -84,12 +83,12 @@ class Thrift extends React.Component {
               </div>
             </div>
           </a>
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={this.searchProduct} />
+          <form className="form-inline">
+            <input className="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" onChange={this.searchProduct} />
           </form>
         </nav>
 
-        <div className="card-deck">
+        <div className="card mb-2">
           <h4>Search Results:</h4>
           <Row>
             {
