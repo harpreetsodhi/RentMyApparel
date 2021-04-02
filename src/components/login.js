@@ -46,6 +46,10 @@ const Login = () => {
               "current_user_name",
               response["data"]["user_name"]
             );
+            localStorage.setItem(
+              "user_account_completeness",
+              response["data"]["isComplete"]
+            );
             window.location.replace("/");
           }
         })

@@ -266,6 +266,34 @@ router.post("/account", (req, res, next) => {
   );
 });
 
+// @Author - Rajveen Singh
+// Api to get information about completeness of user details
+router.get("/account-setup", cors(), async (req, res, next) => {
+  try {
+    console.log(req);
+    userModel
+      .findOne({ user_id: req.query.user_id })
+      .exec()
+      .then((result) => {
+        console.log(result);
+        result.user_password = undefined;
+        if (result.isComplete) {
+          res.status(200).json({ complete: true });
+        }
+        else {
+          res.status(200).json({ complete: false });
+        }
+        
+      })
+      .catch((err) => next(err));
+  } catch (error) {
+    console.log(error.message);
+    res.status(404).json({
+      message: error.message,
+    });
+  }
+});
+
 var transporter = nodemailer.createTransport(contactEmail);
 
 transporter.verify((error) => {

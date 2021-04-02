@@ -141,7 +141,7 @@ export default class team extends Component {
             <div class="col-xl-3 col-sm-6 mb-5">
               <div class="bg-white rounded shadow-sm py-5 px-4">
                 <img
-                  src="https://media-exp1.licdn.com/dms/image/C5603AQFUZTVC0FIIrw/profile-displayphoto-shrink_400_400/0/1517543339374?e=1622678400&v=beta&t=Hd0JvQC75d4iEGnTaLZ_-Q922AZ5xS05eVAdIuPZS1Y"
+                  src="https://avatars.githubusercontent.com/u/17948747?s=400&u=5dcc1ee04e7a3bc8b170538fc88479095cf1fab5&v=4"
                   alt=""
                   width="100"
                   class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm"
