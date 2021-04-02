@@ -1,7 +1,7 @@
 import React, { Component, useState, browserHistory } from "react";
 import axios from "axios";
 import Alert from "react-bootstrap/Alert";
-import {  isUserAccountComplete  } from "../helper/functions";
+import {  isUserAccountComplete,checkUserAccountCompleteness  } from "../helper/functions";
 
 
 // AUTHOR : NEELKANTH DABHI
@@ -52,7 +52,7 @@ const Login = () => {
               "user_account_completeness",
               response["data"]["isComplete"]
             );
-            console.log(isUserAccountComplete())
+
             if (isUserAccountComplete()){
               window.location.replace('/')
             }else {
