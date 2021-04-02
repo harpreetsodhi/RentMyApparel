@@ -57,17 +57,6 @@ function UserHeader(props) {
                 marginLeft: "10px",
                 marginRight: "10px",
               }}
-              href="/orders"
-            >
-              Orders
-            </Nav.Link>
-
-            <Nav.Link
-              style={{
-                color: "#EEEEEE",
-                marginLeft: "10px",
-                marginRight: "10px",
-              }}
               href="/Cart"
             >
               <svg
