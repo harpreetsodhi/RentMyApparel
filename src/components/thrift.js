@@ -9,7 +9,7 @@ import {
   Row, ListGroup, ListGroupItem
 } from "react-bootstrap";
 import "../css/thrift.css";
-import { getCurrentUserID } from "../helper/functions";
+import { getCurrentUserID, isUserAccountComplete, checkUserLogin } from "../helper/functions";
 
 const axios = require('axios');
 
@@ -22,6 +22,7 @@ class Thrift extends React.Component {
       searchResults: []
     };
     this.user_id = getCurrentUserID()
+
   }
 
   // function to add the items to  cart
