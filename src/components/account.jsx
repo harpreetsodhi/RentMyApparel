@@ -44,7 +44,6 @@ class Account extends Component {
           firstName: res.data.result.user_firstName,
           lastName: res.data.result.user_lastName,
           email: res.data.result.user_email,
-          firstName: res.data.result.user_firstName,
           address: res.data.result.user_address,
           address2: res.data.result.user_address2,
           city: res.data.result.user_city,
