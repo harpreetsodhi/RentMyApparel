@@ -1,12 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import {
-  Container,
-  Row,
-  Col,
   Card,
   Button,
-  CardDeck,
   ListGroup,
   ListGroupItem,
   CardColumns,
@@ -37,8 +33,16 @@ export default class Products extends Component {
   render() {
     return (
       <form>
+        <div className="row ">
+          <div className="col-lg-5 mt-0 mr-5 ml-5 mb-3 " >
+            <h2 className="display-4 font-weight-light">Rental Store</h2>
+            <p className="font-italic text-muted">
+              Over 700+ Wedding & Party Rentals, Clothing for every event, Men's and Women's clothing to choose from!
+            </p>
+          </div>
+        </div>
         <div className="card-deck">
-          <CardColumns className="m-5">
+          <CardColumns className="mt-0 mr-5 ml-5 mb-5">
             {this.state.products.map((product) => {
               return (
                 <Card
@@ -66,7 +70,7 @@ export default class Products extends Component {
                       {product.product_size}
                     </ListGroupItem>
                     <ListGroupItem>
-                      <strong>Price: </strong>${product.product_price}
+                      <strong>Price: </strong>${product.product_price} / day
                     </ListGroupItem>
                   </ListGroup>
                   <Card.Body>

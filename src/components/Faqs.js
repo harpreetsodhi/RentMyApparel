@@ -4,7 +4,13 @@ import { Accordion, Card, Button } from 'react-bootstrap'
 export default class Faqs extends Component{
     render(){
         return(
-        <div className="App">  
+        <div className="App">
+            <div className="row ">
+                <div className="col-lg-5 mt-3 mr-5 ml-5 mb-5 " >
+                    <h2 className="display-4 font-weight-light">Frequently Asked Questions</h2>
+
+                </div>
+            </div>
             <Accordion>
                 <Card>
                     <Card.Header>
@@ -51,27 +57,6 @@ export default class Faqs extends Component{
 
                     <Accordion.Collapse eventKey="3">
                         <Card.Body>Really sorry for any inconvenience. But I have to tell you that, we cannot change your registeration email address for your account. This is related with your account safety.</Card.Body>
-                    </Accordion.Collapse>
-                </Card>
-
-                <Card>
-                    <Card.Header>
-                        <Accordion.Toggle as={Button} variant="link" eventKey="4">
-                        How do I reset password?
-                        </Accordion.Toggle>
-                    </Card.Header>
-
-                    <Accordion.Collapse eventKey="4">
-                        <Card.Body>If you just want to reset your password, please follow the steps below:
-
-                                1) Log into your account.
-
-                                2) Click "Edit Password", then you can update your password.
-
-                                If you forget your password, please follow the steps below:1) Click "Sign in" on the top right corner of our homepage.2) Select "Forgot Your Password".
-
-                                3) Enter your registered email address in the provided box.4) You may receive the reset email and you will create a new password with the link. Please also check your junk mail folder if you cannot locate our email.
-                        </Card.Body>
                     </Accordion.Collapse>
                 </Card>
             </Accordion>

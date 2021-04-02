@@ -1,7 +1,5 @@
-import { Carousel } from "react-bootstrap";
 import React, { Component } from "react";
 import "../css/team.css";
-var ReactDOM = require("react-dom");
 
 export default class team extends Component {
   render() {
@@ -17,8 +15,7 @@ export default class team extends Component {
             <div class="col-lg-5">
               <h2 class="display-4 font-weight-light">Our team</h2>
               <p class="font-italic text-muted">
-                Build responsive, mobile-first projects on the web with the
-                world's most popular front-end component library.
+                We are a team of four developers, each with proficiency in designing, developing and product testing.
               </p>
             </div>
           </div>

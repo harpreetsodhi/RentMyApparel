@@ -42,14 +42,14 @@ export default class Footer extends Component {
               </li>
               <li>
                 <a class="text-muted" href="#">
-                  Account Managemnt
+                  Account Management
                 </a>
               </li>
             </ul>
           </div>
 
           <div class="col-6 col-md">
-            <h5>About</h5>
+            <h5>About Us</h5>
             <ul class="list-unstyled text-small">
             <li>
                 <a class="text-muted" href="/faqs">
@@ -63,7 +63,7 @@ export default class Footer extends Component {
               </li>
               <li>
                 <a class="text-muted" href="/contact">
-                Locations
+                Contact Us
                 </a>
               </li>
               
