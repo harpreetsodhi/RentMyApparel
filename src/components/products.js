@@ -37,8 +37,16 @@ export default class Products extends Component {
   render() {
     return (
       <form>
+        <div className="row ">
+          <div className="col-lg-5 mt-0 mr-5 ml-5 mb-3 " >
+            <h2 className="display-4 font-weight-light">Rental Store</h2>
+            <p className="font-italic text-muted">
+              Over 700+ Wedding & Party Rentals, Clothing for every event, Men's and Women's clothing to choose from!
+            </p>
+          </div>
+        </div>
         <div className="card-deck">
-          <CardColumns className="m-5">
+          <CardColumns className="mt-0 mr-5 ml-5 mb-5">
             {this.state.products.map((product) => {
               return (
                 <Card
@@ -71,7 +79,7 @@ export default class Products extends Component {
                   </ListGroup>
                   <Card.Body>
                     <Link to={`/products/${product.product_id}`}>
-                      <Button variant="dark">V iew Product</Button>
+                      <Button variant="dark">View Product</Button>
                     </Link>
                   </Card.Body>
                 </Card>
