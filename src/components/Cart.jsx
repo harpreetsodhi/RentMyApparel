@@ -128,13 +128,12 @@ class Cart extends Component {
       <Row>
         <Col md={{span: 3, offset: 5}}><h3>Total: {this.state.total_price}$</h3></Col>
         <Col md={{ span: 3 }}>
-          <StripeCheckout stripeKey="pk_test_51IbYPpALkSJauFTTXG0pnzGaV7AsybmLz1AljGAbtIktsRRIwa1hqEyuSaWfhQqiXxLaLfqWBfJF18fDbZmWvtCF00Y2oxvsKU"
+          <StripeCheckout disabled={this.state.total_price === 0? true:false} stripeKey="pk_test_51IbYPpALkSJauFTTXG0pnzGaV7AsybmLz1AljGAbtIktsRRIwa1hqEyuSaWfhQqiXxLaLfqWBfJF18fDbZmWvtCF00Y2oxvsKU"
           token={handleToken}
           billingAddress
           shippingAddress
           amount={items.product_price * 100}
           name={items.product_title}/>
-          {/* <Button variant="primary" disabled={this.state.total_price === 0? true:false} >Place Order</Button> */}
         </Col>
       </Row>
       </div>
