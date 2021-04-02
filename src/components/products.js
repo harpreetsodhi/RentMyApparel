@@ -70,7 +70,7 @@ export default class Products extends Component {
                       {product.product_size}
                     </ListGroupItem>
                     <ListGroupItem>
-                      <strong>Price: </strong>${product.product_price}
+                      <strong>Price: </strong>${product.product_price} / day
                     </ListGroupItem>
                   </ListGroup>
                   <Card.Body>
