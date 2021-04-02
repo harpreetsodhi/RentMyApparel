@@ -20,6 +20,7 @@ import { Redirect } from 'react-router'
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import { getCurrentUserID, getCurrentUserName } from "./helper/functions";
 import Orders from "./components/orders";
+import { checkUserLogin, checkUserAccountCompleteness} from "./helper/functions";
 
 function getUserName() {
   if (getCurrentUserID() !== "null") {

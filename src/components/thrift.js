@@ -10,7 +10,6 @@ import {
 } from "react-bootstrap";
 import "../css/thrift.css";
 import { getCurrentUserID } from "../helper/functions";
-import {Link} from "react-router-dom";
 
 const axios = require('axios');
 
@@ -84,12 +83,12 @@ class Thrift extends React.Component {
               </div>
             </div>
           </a>
-          <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" onChange={this.searchProduct} />
+          <form className="form-inline">
+            <input className="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search" onChange={this.searchProduct} />
           </form>
         </nav>
 
-        <div className="card-deck">
+        <div className="card mb-2">
           <h4>Search Results:</h4>
           <Row>
             {
@@ -123,7 +122,12 @@ class Thrift extends React.Component {
                       </Card.Footer>
                       <Card.Footer>
                         <div className="col text-center">
-                        <Button variant="btn btn-outline-success" >Add to Cart</Button>
+                        <Button
+                          onClick={() => this.addtoCart(product)}
+                          variant="btn btn-primary"
+                      >
+                        Add to Cart
+                      </Button>
                         </div>
                         <br />
                         <div className="col text-center">

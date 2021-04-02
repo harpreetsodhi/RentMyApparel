@@ -6,6 +6,10 @@ export function getCurrentUserName() {
   return localStorage.getItem("current_user_name");
 }
 
+export function getUserAccountCompleteness() {
+  return localStorage.getItem("user_account_completeness");
+}
+
 export function checkUserLogin() {
   if (getCurrentUserID() == "null") {
     window.location.replace("/login");
@@ -13,5 +17,16 @@ export function checkUserLogin() {
 }
 
 export function checkUserAccountCompleteness() {
-  return localStorage.getItem("user_account_completeness");
+  var check = getUserAccountCompleteness();
+  if (check == null || !check) {
+    window.location.replace("/account");
+  }
+}
+
+export function isUserAccountComplete() {
+  var check = getUserAccountCompleteness();
+  if (check == null || !check) {
+    return false;
+  }
+  return true;
 }

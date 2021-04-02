@@ -44,7 +44,6 @@ class Account extends Component {
           firstName: res.data.result.user_firstName,
           lastName: res.data.result.user_lastName,
           email: res.data.result.user_email,
-          firstName: res.data.result.user_firstName,
           address: res.data.result.user_address,
           address2: res.data.result.user_address2,
           city: res.data.result.user_city,
@@ -174,6 +173,7 @@ class Account extends Component {
               alertMessage: "Changes saved successfully!",
               disableSubmit: true
             });
+            window.location.replace("/");
           }
           else {
             this.setState({
@@ -268,7 +268,7 @@ class Account extends Component {
                   </Form.Group>
                 </Form.Row>
               </Col>
-              <Button variant="dark" type="button" onClick={this.cancelSubmit} style={{ marginRight: "4%" }}>Exit</Button>
+              {/* <Button variant="dark" type="button" onClick={this.cancelSubmit} style={{ marginRight: "4%" }}>Exit</Button> */}
               <Button variant="dark" type="submit" onClick={this.submitForm} id="formGridSubmit" className={this.state.disableSubmit && "disable-button"}>Submit</Button>
             </Row>
           </Form>
