@@ -66,7 +66,11 @@ class Cart extends Component {
       if(status === 'success'){
         toast('Order has been placed! Please Check your Email!', 
         {type: 'success'});
-
+        axios.get("https://rent-my-apparel-backend.herokuapp.com/api/emptyCart/"+this.user_id);
+        this.setState = {
+          items: [],
+          total_price: 0
+        };
       } else {
         toast('Something went wrong',
         {type: "error"});
