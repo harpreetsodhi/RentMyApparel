@@ -71,7 +71,7 @@ export default class Products extends Component {
                   </ListGroup>
                   <Card.Body>
                     <Link to={`/products/${product.product_id}`}>
-                      <Button variant="dark">V iew Product</Button>
+                      <Button variant="dark">View Product</Button>
                     </Link>
                   </Card.Body>
                 </Card>
