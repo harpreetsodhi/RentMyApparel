@@ -173,6 +173,7 @@ class Account extends Component {
               alertMessage: "Changes saved successfully!",
               disableSubmit: true
             });
+            window.location.replace("/");
           }
           else {
             this.setState({
@@ -267,7 +268,7 @@ class Account extends Component {
                   </Form.Group>
                 </Form.Row>
               </Col>
-              <Button variant="dark" type="button" onClick={this.cancelSubmit} style={{ marginRight: "4%" }}>Exit</Button>
+              {/* <Button variant="dark" type="button" onClick={this.cancelSubmit} style={{ marginRight: "4%" }}>Exit</Button> */}
               <Button variant="dark" type="submit" onClick={this.submitForm} id="formGridSubmit" className={this.state.disableSubmit && "disable-button"}>Submit</Button>
             </Row>
           </Form>
