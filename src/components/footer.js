@@ -63,7 +63,7 @@ export default class Footer extends Component {
               </li>
               <li>
                 <a class="text-muted" href="/contact">
-                Locations
+                Contact Us
                 </a>
               </li>
               

@@ -59,27 +59,6 @@ export default class Faqs extends Component{
                         <Card.Body>Really sorry for any inconvenience. But I have to tell you that, we cannot change your registeration email address for your account. This is related with your account safety.</Card.Body>
                     </Accordion.Collapse>
                 </Card>
-
-                <Card>
-                    <Card.Header>
-                        <Accordion.Toggle as={Button} variant="link" eventKey="4">
-                        How do I reset password?
-                        </Accordion.Toggle>
-                    </Card.Header>
-
-                    <Accordion.Collapse eventKey="4">
-                        <Card.Body>If you just want to reset your password, please follow the steps below:
-
-                                1) Log into your account.
-
-                                2) Click "Edit Password", then you can update your password.
-
-                                If you forget your password, please follow the steps below:1) Click "Sign in" on the top right corner of our homepage.2) Select "Forgot Your Password".
-
-                                3) Enter your registered email address in the provided box.4) You may receive the reset email and you will create a new password with the link. Please also check your junk mail folder if you cannot locate our email.
-                        </Card.Body>
-                    </Accordion.Collapse>
-                </Card>
             </Accordion>
         </div>
 
