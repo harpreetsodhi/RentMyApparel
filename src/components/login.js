@@ -1,6 +1,8 @@
 import React, { Component, useState, browserHistory } from "react";
 import axios from "axios";
 import Alert from "react-bootstrap/Alert";
+import {  isUserAccountComplete,checkUserAccountCompleteness  } from "../helper/functions";
+
 
 // AUTHOR : NEELKANTH DABHI
 //  Ref: https://www.positronx.io/build-react-login-sign-up-ui-template-with-bootstrap-4/
@@ -50,7 +52,12 @@ const Login = () => {
               "user_account_completeness",
               response["data"]["isComplete"]
             );
-            window.location.replace("/");
+
+            if (isUserAccountComplete()){
+              window.location.replace('/')
+            }else {
+              window.location.replace('/account')
+            }
           }
         })
         .catch(function (error) {

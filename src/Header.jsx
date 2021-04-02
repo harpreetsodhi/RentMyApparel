@@ -6,7 +6,7 @@ import { getCurrentUserID, getCurrentUserName } from "./helper/functions";
 
 const handleLogout = () => {
   localStorage.setItem("current_user_id", null);
-  window.location.reload();
+  window.location.replace("/");
 };
 
 function UserHeader(props) {

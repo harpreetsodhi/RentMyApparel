@@ -39,7 +39,7 @@ const Signup = () => {
             if (response.status === 200) {
               setAlertColor("success")
               setAlertMessage(response["data"])
-              window.location.replace("/account");
+              window.location.replace('/login')
             }
           })
           .catch(function (error) {

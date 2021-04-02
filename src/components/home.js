@@ -3,6 +3,8 @@ import React, { Component, useState, handleSelect } from "react";
 import styles from "../style.module.css";
 import { Carousel } from "react-bootstrap";
 import Footer from "../components/footer.js";
+import { checkUserLogin, isUserAccountComplete  } from "../helper/functions";
+
 import {
   Container,
   Row,
@@ -16,6 +18,7 @@ import {
 // carousel: https://react-bootstrap.github.io/components/carousel/
 export default class Home extends Component {
   render() {
+
     return (
       <div>
         <div>
