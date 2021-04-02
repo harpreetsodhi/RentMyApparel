@@ -58,7 +58,6 @@ class Cart extends Component {
     // render the cart items on the UI
 
     async function handleToken(token){
-      // console.log({token, address});
       const response = await axios.post("http://localhost:5000/api/checkout", {token, items});
       const {status} = response.data
       console.log(response.data);
